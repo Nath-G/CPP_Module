@@ -6,12 +6,31 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 15:41:08 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/12 12:12:55 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/12 17:39:38 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "Contact.class.hpp"
 #include "annuaire.hpp"
+
+void    displayContactList(Contact contact[8])
+{
+    int i = 0;
+
+    std::cout << "|     index|First name| Last name| Nick name|" << std::endl;
+    while (contact[i].exists() && i < 8)
+    {
+        contact[i].display_contact(i);
+//        j = 0;
+//        while (j < 11)
+//        {
+//            std::cout << contact[i].Field_value[j];// << std::endl;
+//            j++;
+//        }
+//        std::cout << std::endl;
+        i++;
+    }
+}
 
 void    show_startup(void)
 {
@@ -48,6 +67,13 @@ int main(void)
            }
            else
                 std::cout << "Max contact number is triggered !" << std::endl;
+       }
+       else if (cmd == "SEARCH")
+       {
+            if(contact[0].exists())
+                displayContactList(contact);
+            else
+                std::cout << "MyContactBook is empty" << std::endl;
        }
        else if (cmd == "EXIT")
             run = 0;

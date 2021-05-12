@@ -18,10 +18,9 @@ Contact::Contact(void)//dans la classe annuaire j'appelle la fonction annuaire
     return; //facultatif
 }
 
-Contact::~Contact(void)
+bool        Contact::exists(void)
 {
-    std::cout << "j'appelle le destructeur contact" << std::endl;
-    return; //facultatif
+    return (Field_value[0] != "");
 }
 
 std::string  Contact::Field_name[11]  = {
@@ -38,6 +37,29 @@ std::string  Contact::Field_name[11]  = {
                 "Darkest secret: "
         };
 
+void    Contact::display_contact(int i)
+{
+ // int fstNameLen = std::lengh.Field_value[0];
+ // std::string         firstName;
+ // if (()fstNameLen = (std::lenght.Field_value[0])) > 10);
+
+  //  int j = 0;
+//    while (j < 11)
+//    {
+//    check(Field_value[i])
+        std::cout << "|         " << i + 1 << "|";
+        std::cout << Field_value[0] << "|";
+        std::cout << Field_value[1] << "|";
+        std::cout << Field_value[2] << "|";
+
+     //  .Field_value[j];// << std::endl;
+//        j++;
+//    }
+    std::cout << std::endl;
+//std::cout << int << 
+}
+
+
 void    Contact::add_contact(void)
 {
     int i;
@@ -49,16 +71,25 @@ void    Contact::add_contact(void)
         std::getline(std::cin, Field_value[i]);
         i++;
     }
-    std::cout << "oups" << std::endl;
-    while (i < 22)
-    {
-        std::cout << Contact::Field_name[i];
-        std::cout << Contact::Field_value[i];
-        std::cout << std::endl;//<< Contact::Field_value[i] 
-        i++;
-    }
+
+    //std::cin.ignore();
+
+//    i = 0;
+//    std::cout << "oups" << std::endl;
+//    while (i < 11)
+//    {
+//        std::cout << Contact::Field_name[i];
+//        std::cout << Contact::Field_value[i];
+//        std::cout << std::endl;//<< Contact::Field_value[i] 
+//        i++;
+//    }
 //    std::getline(std::cin, firstName);
 //    std::cin.ignore();
 //    std::cout << "First Name : " << Contact::Field_name[0]  << std::endl;;
     return;
+}
+Contact::~Contact(void)
+{
+    std::cout << "j'appelle le destructeur contact" << std::endl;
+    return; //facultatif
 }

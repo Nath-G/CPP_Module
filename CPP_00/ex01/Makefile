@@ -3,12 +3,12 @@
 
 NAME		= myContactBook
 CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 -I.
+CFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98 -I.
 RM			= rm -f
 
 # SRCS *********************************************************************** #
 
-SRCS	=	main.cpp Contact.class.cpp
+SRCS	=	main.cpp Contact.class.cpp annuaire.cpp
 #SRCS		= ${wildcard *.cpp}
 
 # OBJS *********************************************************************** #

@@ -18,7 +18,7 @@ Contact::Contact(void)//dans la classe annuaire j'appelle la fonction annuaire
     return; //facultatif
 }
 
-bool        Contact::exists(void)
+bool        Contact::exists(void)const
 {
     return (Field_value[0] != "");
 }
@@ -37,57 +37,68 @@ std::string  Contact::Field_name[11]  = {
                 "Darkest secret: "
         };
 
-void    Contact::display_contact(int i)
-{
- // int fstNameLen = std::lengh.Field_value[0];
- // std::string         firstName;
- // if (()fstNameLen = (std::lenght.Field_value[0])) > 10);
-
-  //  int j = 0;
-//    while (j < 11)
-//    {
-//    check(Field_value[i])
-        std::cout << "|         " << i + 1 << "|";
-        std::cout << Field_value[0] << "|";
-        std::cout << Field_value[1] << "|";
-        std::cout << Field_value[2] << "|";
-
-     //  .Field_value[j];// << std::endl;
-//        j++;
-//    }
-    std::cout << std::endl;
-//std::cout << int << 
-}
-
-
-void    Contact::add_contact(void)
+int    Contact::count_str(std::string str)const
 {
     int i;
 
     i = 0;
-    while(i < 11)
-    {
-        std::cout << Contact::Field_name[i];
-        std::getline(std::cin, Field_value[i]);
+    if (!(str[i]))
+        return (i);
+    while(str[i])
         i++;
+    return (i);
+}
+
+void    Contact::show_contact(void)const
+{
+     int fieldName = 0;
+
+    for(fieldName = FirstName; fieldName <= DarkestSecret; fieldName++)
+    {
+
+        std::cout << Field_name[fieldName] << Field_value[fieldName];
+        std::cout << std::endl;
     }
-
-    //std::cin.ignore();
-
-//    i = 0;
-//    std::cout << "oups" << std::endl;
-//    while (i < 11)
-//    {
-//        std::cout << Contact::Field_name[i];
-//        std::cout << Contact::Field_value[i];
-//        std::cout << std::endl;//<< Contact::Field_value[i] 
-//        i++;
-//    }
-//    std::getline(std::cin, firstName);
-//    std::cin.ignore();
-//    std::cout << "First Name : " << Contact::Field_name[0]  << std::endl;;
     return;
 }
+
+void    Contact::show_contact_sumup(int i)const
+{
+    int strlen = 0, fieldName = 0;
+    std::string  str ="";
+    std::cout << "|         " << i + 1 << "|";
+    for(fieldName = FirstName; fieldName < Login; fieldName++)
+    {
+       strlen = Field_value[fieldName].length();
+       // strlen = Contact::count_str(this->Field_value[fieldName]);
+        if (strlen < 11)
+        {
+            std::cout << std::setw(10) << std::right << std::setfill(' ') << this->Field_value[fieldName];
+            std::cout << "|";
+        }
+        else
+        {
+            str ="";
+            str = this->Field_value[fieldName];
+            str.resize (9);
+            std::cout << str;std::cout << ".|";
+        }
+    }
+    std::cout << std::endl;
+}
+
+void    Contact::add_contact(void)
+{
+    int value;
+    
+    for(value = FirstName; value <= DarkestSecret; value++)
+    {
+        std::cout << Contact::Field_name[value];
+        std::getline(std::cin, Field_value[value]);
+    }
+    return;
+}
+
 Contact::~Contact(void)
 {
     std::cout << "j'appelle le destructeur contact" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 15:41:08 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/17 18:08:22 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:06:54 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int main(void)
        { 
             if (i < 8)
            {
-               contact[i].add_contact();
-               i++;
+                if(!contact[i].add_contact())
+                    i++;
            }
            else
                 std::cout << "Max contact number is triggered !" << std::endl;
@@ -50,7 +50,10 @@ int main(void)
        else if (cmd == "SEARCH")
        {
             if(contact[0].exists())
-                search_contact(contact);
+            {
+                show_contact_list(contact);
+                contact[choose_contact(contact)].show_contact();
+            }
             else
                 std::cout << "MyContactBook is empty" << std::endl;
        }
@@ -58,7 +61,6 @@ int main(void)
             run = 0;
        else
            std::cout << "This command is not available, please use ADD, SEARCH or EXIT" << std::endl;
-       /* code */
     }
     return (0);
 }

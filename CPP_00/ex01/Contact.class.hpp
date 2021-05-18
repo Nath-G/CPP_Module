@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:06:32 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:26 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/18 14:02:10 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@
 class Contact
 {
 private:
-        int                 index;
         static std::string  Field_name[11];
         std::string         Field_value[11];
-        std::string         firstName;
         enum Field {
-        //        pkey,
                 FirstName,
                 LastName,
                 NickName,
@@ -37,21 +34,17 @@ private:
                 UnderwearColor,
                 DarkestSecret
         };
+
+        void    set_information(std::string input, int fieldName);
+
 public:
         Contact(void);
         ~Contact(void);
 
-        
-        void    set_information(void);
-        void    get_field(void);
-        void    add_contact(void);
-        void    show_contact(void)const;
-//        void    display_Field(std::string field_value);
-//        void    set_Field(int i,std::string value);
-//        void    show_contact_list(void);
-        void    show_contact_sumup(int)const;
         bool    exists(void)const;
-        int     count_str(std::string str)const;
+        int     add_contact(void);
+        void    show_contact(void)const;
+        void    show_contact_sumup(int)const;
 };
 
 #endif

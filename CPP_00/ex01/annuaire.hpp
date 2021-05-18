@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:55:25 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/17 14:31:41 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/18 12:19:14 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 void    show_startup(void);
 void    show_contact_list(Contact contact[8]);
-int     choose_contact(void);
-void    search_contact(Contact contact[8]);
+int     choose_contact(Contact contact[8]);
 
 #endif

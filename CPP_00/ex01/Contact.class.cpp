@@ -20,7 +20,7 @@ Contact::Contact(void)//dans la classe annuaire j'appelle la fonction annuaire
 
 bool        Contact::exists(void)const
 {
-    return (Field_value[0] != "");
+    return (this->Field_value[0] != "");
 }
 
 std::string  Contact::Field_name[11]  = {
@@ -37,16 +37,9 @@ std::string  Contact::Field_name[11]  = {
                 "Darkest secret: "
         };
 
-int    Contact::count_str(std::string str)const
+void    Contact::set_information(std::string input, int value)
 {
-    int i;
-
-    i = 0;
-    if (!(str[i]))
-        return (i);
-    while(str[i])
-        i++;
-    return (i);
+    this->Field_value[value] = input;
 }
 
 void    Contact::show_contact(void)const
@@ -70,10 +63,9 @@ void    Contact::show_contact_sumup(int i)const
     for(fieldName = FirstName; fieldName < Login; fieldName++)
     {
        strlen = Field_value[fieldName].length();
-       // strlen = Contact::count_str(this->Field_value[fieldName]);
         if (strlen < 11)
         {
-            std::cout << std::setw(10) << std::right << std::setfill(' ') << this->Field_value[fieldName];
+            std::cout << std::setw(10) << std::right  << this->Field_value[fieldName];
             std::cout << "|";
         }
         else
@@ -87,16 +79,19 @@ void    Contact::show_contact_sumup(int i)const
     std::cout << std::endl;
 }
 
-void    Contact::add_contact(void)
+int    Contact::add_contact(void)
 {
     int value;
-    
+    std::string input;
     for(value = FirstName; value <= DarkestSecret; value++)
     {
         std::cout << Contact::Field_name[value];
-        std::getline(std::cin, Field_value[value]);
+        std::getline(std::cin, input);
+        Contact::set_information(input, value);
     }
-    return;
+    if (Field_value[FirstName] == "")
+        return (1);
+    return (0);
 }
 
 Contact::~Contact(void)

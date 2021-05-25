@@ -54,6 +54,7 @@ std::string  Contact::Field_info[11]  = {
 std::string    Contact::check_information(std::string input, int fieldName)
 {
     int i = -1, j = 0;
+    std::size_t found0, found1;
     
     if (input == "")
         return(input);
@@ -111,10 +112,16 @@ std::string    Contact::check_information(std::string input, int fieldName)
         {
             if (!(input[i] == '-') && !(input[i] == '.') && !(input[i] == '@') && !(input[i] == '_') && (!(input[i] >= '0') || !(input[i] <= '9')) && (!(input[i] >= 'a') || !(input[i] <= 'z')))
             {
-                input.erase(i, 1);
-                j++;
-                i--;
+                input = "";
+                break;
             }
+        }
+        if (((found0 = input.find('@')) && (found0 == std::string::npos)) || (input == "") ||
+            ((found1 = input.find('.')) && (found1 == std::string::npos)) ||
+            ((found0 > found1) || (found1 == input.length() - 1)) || (found1 == found0 + 1) || (found0 == 0))
+        {
+            input = "";
+            std::cout << "---  Format is not correct ! ---" << std::endl;
         }
     }
     if (fieldName == Phone)
@@ -133,12 +140,25 @@ std::string    Contact::check_information(std::string input, int fieldName)
     {
         while (input[++i])
         {
-            if (!(input[i] == '/' && (i != 0 || i != 1 || i != 2 || i != 3 || i != 6 || i != 9)) && ((!(input[i] >= '0') || !(input[i] <= '9')) && (i != 4 || i != 7)))
-            {
+            if (((input[i] < '0' || input[i] > '9') && ((i >=0 && i <= 3) || (i >= 5 && i <= 6) || (i >= 8 && i <= 9)))
+                ||  (input[i] != '/' && (i == 4 || i == 7)) || (i > 9) || (input[0] != '2' && input[0] != '1') || (input[0] == '1' && input[1] != '9')
+                || (input[5] != '0' && input[5] != '1') || (input[5] == '1' && (input[6] < '0' || input[6] > '2'))
+                || (input[8] < '0' || input[8] > '3') || (input[8] == '3' && (input[9] < '0' || input[9] > '1')))
+                {
+                    input = "";
+                    break;
+
+                }
+        /*    {
                 input.erase(i, 1);
                 j++;
                 i--;
-            }
+            }*/
+        }
+        if (input.length() != 10)
+        {
+            input = "";
+            std::cout << "---  Format is not correct ! ---" << std::endl;
         }
     }
     return(input);

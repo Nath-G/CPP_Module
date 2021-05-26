@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 17:57:27 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/26 18:40:59 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/26 21:01:49 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ std::string    Contact::check_firstName(std::string input)
     return (input);
 }
 
-std::string    Contact::check_lastAndNickName(std::string input)
+std::string    Contact::check_lastAndNickNameAndFavoriteMealAndUnderwearColor(std::string input)
 {
     int i = -1, j = 0;
 
@@ -151,3 +151,23 @@ std::string    Contact::check_birthdayDate(std::string input)
     }
     return(input);
 }
+
+std::string    Contact::check_darkSecret(std::string input)
+{
+    int i = -1, j = 0;
+
+    while (input[++i])
+    {
+        if (!(input[i] == '-') && !(input[i] == ' ' && i != 0) && !(input[i] == '.') 
+        && (!(input[i] == '(') && !(input[i] == ')')  && !(input[i] == '(') )
+        && (!(input[i] >= 'A') || !(input[i] <= 'Z'))
+        && (!(input[i] >= 'a') || !(input[i] <= 'z')))
+        {
+            input.erase(i, 1);
+            j++;
+            i--;
+       }
+    }
+    return (input);
+}
+

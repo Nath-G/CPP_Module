@@ -37,17 +37,17 @@ std::string  Contact::Field_name[11]  = {
         };
 
 std::string  Contact::Field_info[11]  = {
-                "Upper/lowercase and - are autorised, others will be remove ***************** ",
-                "Upper/lowercase, - and space are autorised, others will be remove ********** ",
-                "Upper/lowercase, - and space are autorised, others will be remove ********** ",
-                "lowercase are autorised, others will be remove. **************************** ",
-                "Upper/lowercase, numbers, - and space are autorised, others will be remove * ",
-                "Lowercase,numbers -_.@ are autorised, others will be remove **************** ",
-                "Numbers and .()+ are autorised, others will be remove *********************** ",
-                "Format YYYY/MM/DD ********************************************************** ",
-                "Upper/lowercase, - and space are autorised, others will be remove ********** ",
-                "Upper/lowercase, - and space are autorised, others will be remove ********** ",
-                "Upper/lowercase, .,-() and space are autorised, others will be remove ****** ",
+                "Upper/lowercase and - are autorised, others will be removed ***************** ",
+                "Upper/lowercase, - and space are autorised, others will be removed ********** ",
+                "Upper/lowercase, - and space are autorised, others will be removed ********** ",
+                "lowercase are autorised, others will be removed ***************************** ",
+                "Upper/lowercase, numbers, - and space are autorised, others will be removed * ",
+                "Lowercase,numbers -_.@ are autorised **************************************** ",
+                "Numbers and .()+ are autorised, others will be removed ********************** ",
+                "Format YYYY/MM/DD *********************************************************** ",
+                "Upper/lowercase, - and space are autorised, others will be removed ********** ",
+                "Upper/lowercase, - and space are autorised, others will be removed ********** ",
+                "Upper/lowercase, .,-() and space are autorised, others will be removed ****** ",
         };
 
 
@@ -57,8 +57,8 @@ std::string    Contact::check_information(std::string input, int fieldName)
         return(input);
     else if (fieldName == FirstName)
         input = check_firstName(input);
-    else if (fieldName == LastName || fieldName == NickName)
-        input = check_lastAndNickName(input);
+    else if (fieldName == LastName || fieldName == NickName || fieldName == FavoriteMeal || fieldName == UnderwearColor)
+        input = check_lastAndNickNameAndFavoriteMealAndUnderwearColor(input);
     else if (fieldName == Login)
         input = check_login(input);
     else if (fieldName == PostalAddress)
@@ -69,6 +69,8 @@ std::string    Contact::check_information(std::string input, int fieldName)
         input = check_phone(input);
     else if (fieldName == BirthdayDate)
         input = check_birthdayDate(input);
+    else if (fieldName == DarkestSecret)
+        input = check_darkSecret(input);
     return(input);
 }
 

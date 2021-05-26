@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:05:29 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/18 13:53:45 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/26 11:59:22 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 int     choose_contact(Contact contact[8])
 {
     int         choice = 0;
-    std::string s;
+    std::string s = "";
     while (choice < 1 || choice > 8 || !contact[choice - 1].exists())
     {
         std::cout << "Please choose an available contact index: ";
         if(!(std::getline(std::cin, s)))
             choice = 0;
         choice = s[0] - 48;
+        if (s[1])
+            choice = 0;
     }
     return (choice - 1);
 }

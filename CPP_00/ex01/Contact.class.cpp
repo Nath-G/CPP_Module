@@ -14,8 +14,7 @@
 
 Contact::Contact(void)//dans la classe annuaire j'appelle la fonction annuaire
 {
-    std::cout << "j'appelle le constructeur contact" << std::endl;
-    return; //facultatif
+    return;
 }
 
 bool        Contact::exists(void)const
@@ -62,7 +61,8 @@ std::string    Contact::check_information(std::string input, int fieldName)
     {
         while (input[++i])
         {
-            if (!(input[i] == '-') && (!(input[i] >= 'A') || !(input[i] <= 'Z')) && (!(input[i] >= 'a') || !(input[i] <= 'z')))
+            if (!(input[i] == '-') && (!(input[i] >= 'A') || !(input[i] <= 'Z'))
+                && (!(input[i] >= 'a') || !(input[i] <= 'z')))
             {
                 input.erase(i, 1);
                 j++;
@@ -74,7 +74,9 @@ std::string    Contact::check_information(std::string input, int fieldName)
     {
         while (input[++i])
         {
-            if (!(input[i] == '-') && !(input[i] == ' ' && i != 0) && (!(input[i] >= 'A') || !(input[i] <= 'Z')) && (!(input[i] >= 'a') || !(input[i] <= 'z')))
+            if (!(input[i] == '-') && !(input[i] == ' ' && i != 0)
+            && (!(input[i] >= 'A') || !(input[i] <= 'Z'))
+            && (!(input[i] >= 'a') || !(input[i] <= 'z')))
             {
                 input.erase(i, 1);
                 j++;
@@ -98,7 +100,10 @@ std::string    Contact::check_information(std::string input, int fieldName)
     {
         while (input[++i])
         {
-            if (!(input[i] == '-') && !(input[i] == ' ' && i != 0) && (!(input[i] >= '0') || !(input[i] <= '9')) && (!(input[i] >= 'A') || !(input[i] <= 'Z')) && (!(input[i] >= 'a') || !(input[i] <= 'z')))
+            if (!(input[i] == '-') && !(input[i] == ' ' && i != 0)
+            && (!(input[i] >= '0') || !(input[i] <= '9'))
+            && (!(input[i] >= 'A') || !(input[i] <= 'Z'))
+            && (!(input[i] >= 'a') || !(input[i] <= 'z')))
             {
                 input.erase(i, 1);
                 j++;
@@ -110,15 +115,18 @@ std::string    Contact::check_information(std::string input, int fieldName)
     {
         while (input[++i])
         {
-            if (!(input[i] == '-') && !(input[i] == '.') && !(input[i] == '@') && !(input[i] == '_') && (!(input[i] >= '0') || !(input[i] <= '9')) && (!(input[i] >= 'a') || !(input[i] <= 'z')))
+            if (!(input[i] == '-') && !(input[i] == '.') && !(input[i] == '@')
+            && !(input[i] == '_') && (!(input[i] >= '0') || !(input[i] <= '9'))
+            && (!(input[i] >= 'a') || !(input[i] <= 'z')))
             {
                 input = "";
                 break;
             }
         }
-        if (((found0 = input.find('@')) && (found0 == std::string::npos)) || (input == "") ||
-            ((found1 = input.find('.')) && (found1 == std::string::npos)) ||
-            ((found0 > found1) || (found1 == input.length() - 1)) || (found1 == found0 + 1) || (found0 == 0))
+        if (((found0 = input.find('@'))
+        && (found0 == std::string::npos)) || (input == "") || ((found1 = input.find('.'))
+        && (found1 == std::string::npos)) || ((found0 > found1)
+        || (found1 == input.length() - 1)) || (found1 == found0 + 1) || (found0 == 0))
         {
             input = "";
             std::cout << "---  Format is not correct ! ---" << std::endl;
@@ -128,7 +136,8 @@ std::string    Contact::check_information(std::string input, int fieldName)
     {
         while (input[++i])
         {
-            if (!(input[i] == '.') && !(input[i] == '+') && !(input[i] == '(') && !(input[i] == ')') && (!(input[i] >= '0') || !(input[i] <= '9')))
+            if (!(input[i] == '.') && !(input[i] == '+') && !(input[i] == '(')
+            && !(input[i] == ')') && (!(input[i] >= '0') || !(input[i] <= '9')))
             {
                 input.erase(i, 1);
                 j++;
@@ -141,19 +150,17 @@ std::string    Contact::check_information(std::string input, int fieldName)
         while (input[++i])
         {
             if (((input[i] < '0' || input[i] > '9') && ((i >=0 && i <= 3) || (i >= 5 && i <= 6) || (i >= 8 && i <= 9)))
-                ||  (input[i] != '/' && (i == 4 || i == 7)) || (i > 9) || (input[0] != '2' && input[0] != '1') || (input[0] == '1' && input[1] != '9')
-                || (input[5] != '0' && input[5] != '1') || (input[5] == '1' && (input[6] < '0' || input[6] > '2'))
-                || (input[8] < '0' || input[8] > '3') || (input[8] == '3' && (input[9] < '0' || input[9] > '1')))
-                {
-                    input = "";
-                    break;
-
-                }
-        /*    {
-                input.erase(i, 1);
-                j++;
-                i--;
-            }*/
+            || (input[i] != '/' && (i == 4 || i == 7)) || (i > 9) || (input[0] != '2' && input[0] != '1')
+            || (input[0] == '1' && input[1] != '9') || (input[5] != '0' && input[5] != '1')
+            || (input[5] == '1' && (input[6] < '0' || input[6] > '2'))
+            || (input[8] < '0' || input[8] > '3') || (input[8] == '3' && (input[9] < '0' || input[9] > '1'))
+            || (input[8] == '3' && input[9] == '1' && ((input[5] == '0' && input[6] == '2') || input[6] == '4' || input[6] == '6' || input[6] == '9' || (input[5] == '1' && input[6] == '1')))
+            || (input[5] == '0' && input[6] == '2' && input[8] == '3' && input[9] == '0')
+            ||  (input[5] == '0' && input[6] == '0') || (input[8] == '0' && input[9] == '0'))
+            {
+                input = "";
+                break;
+            }
         }
         if (input.length() != 10)
         {
@@ -224,13 +231,10 @@ int    Contact::add_contact(void)
         Contact::set_information(input, value);
          } while (Field_value[value] == "");
     }
-   
-       // return (1);
     return (0);
 }
 
 Contact::~Contact(void)
 {
-    std::cout << "j'appelle le destructeur contact" << std::endl;
-    return; //facultatif
+    return;
 }

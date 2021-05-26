@@ -12,7 +12,7 @@
 
 #include "annuaire.hpp"
 
-Contact::Contact(void)//dans la classe annuaire j'appelle la fonction annuaire
+Contact::Contact(void)
 {
     return;
 }
@@ -50,134 +50,32 @@ std::string  Contact::Field_info[11]  = {
                 "Upper/lowercase, .,-() and space are autorised, others will be remove ****** ",
         };
 
+
 std::string    Contact::check_information(std::string input, int fieldName)
 {
-    int i = -1, j = 0;
-    std::size_t found0, found1;
-    
     if (input == "")
         return(input);
-    if (fieldName == FirstName)
-    {
-        while (input[++i])
-        {
-            if (!(input[i] == '-') && (!(input[i] >= 'A') || !(input[i] <= 'Z'))
-                && (!(input[i] >= 'a') || !(input[i] <= 'z')))
-            {
-                input.erase(i, 1);
-                j++;
-                i--;
-            }
-        }
-    }
-    if (fieldName == LastName || fieldName == NickName)
-    {
-        while (input[++i])
-        {
-            if (!(input[i] == '-') && !(input[i] == ' ' && i != 0)
-            && (!(input[i] >= 'A') || !(input[i] <= 'Z'))
-            && (!(input[i] >= 'a') || !(input[i] <= 'z')))
-            {
-                input.erase(i, 1);
-                j++;
-                i--;
-            }
-        }
-    }
-    if (fieldName == Login)
-    {
-        while (input[++i])
-        {
-            if ((!(input[i] >= 'a') || !(input[i] <= 'z')))
-            {
-                input.erase(i, 1);
-                j++;
-                i--;
-            }
-        }
-    }
-    if (fieldName == PostalAddress)
-    {
-        while (input[++i])
-        {
-            if (!(input[i] == '-') && !(input[i] == ' ' && i != 0)
-            && (!(input[i] >= '0') || !(input[i] <= '9'))
-            && (!(input[i] >= 'A') || !(input[i] <= 'Z'))
-            && (!(input[i] >= 'a') || !(input[i] <= 'z')))
-            {
-                input.erase(i, 1);
-                j++;
-                i--;
-            }
-        }
-    }
-    if (fieldName == EmailAddress)
-    {
-        while (input[++i])
-        {
-            if (!(input[i] == '-') && !(input[i] == '.') && !(input[i] == '@')
-            && !(input[i] == '_') && (!(input[i] >= '0') || !(input[i] <= '9'))
-            && (!(input[i] >= 'a') || !(input[i] <= 'z')))
-            {
-                input = "";
-                break;
-            }
-        }
-        if (((found0 = input.find('@'))
-        && (found0 == std::string::npos)) || (input == "") || ((found1 = input.find('.'))
-        && (found1 == std::string::npos)) || ((found0 > found1)
-        || (found1 == input.length() - 1)) || (found1 == found0 + 1) || (found0 == 0))
-        {
-            input = "";
-            std::cout << "---  Format is not correct ! ---" << std::endl;
-        }
-    }
-    if (fieldName == Phone)
-    {
-        while (input[++i])
-        {
-            if (!(input[i] == '.') && !(input[i] == '+') && !(input[i] == '(')
-            && !(input[i] == ')') && (!(input[i] >= '0') || !(input[i] <= '9')))
-            {
-                input.erase(i, 1);
-                j++;
-                i--;
-            }
-        }
-    }
-    if (fieldName == BirthdayDate)
-    {
-        while (input[++i])
-        {
-            if (((input[i] < '0' || input[i] > '9') && ((i >=0 && i <= 3) || (i >= 5 && i <= 6) || (i >= 8 && i <= 9)))
-            || (input[i] != '/' && (i == 4 || i == 7)) || (i > 9) || (input[0] != '2' && input[0] != '1')
-            || (input[0] == '1' && input[1] != '9') || (input[5] != '0' && input[5] != '1')
-            || (input[5] == '1' && (input[6] < '0' || input[6] > '2'))
-            || (input[8] < '0' || input[8] > '3') || (input[8] == '3' && (input[9] < '0' || input[9] > '1'))
-            || (input[8] == '3' && input[9] == '1' && ((input[5] == '0' && input[6] == '2') || input[6] == '4' || input[6] == '6' || input[6] == '9' || (input[5] == '1' && input[6] == '1')))
-            || (input[5] == '0' && input[6] == '2' && input[8] == '3' && input[9] == '0')
-            ||  (input[5] == '0' && input[6] == '0') || (input[8] == '0' && input[9] == '0'))
-            {
-                input = "";
-                break;
-            }
-        }
-        if (input.length() != 10)
-        {
-            input = "";
-            std::cout << "---  Format is not correct ! ---" << std::endl;
-        }
-    }
+    else if (fieldName == FirstName)
+        input = check_firstName(input);
+    else if (fieldName == LastName || fieldName == NickName)
+        input = check_lastAndNickName(input);
+    else if (fieldName == Login)
+        input = check_login(input);
+    else if (fieldName == PostalAddress)
+        input = check_postalAddress(input);
+    else if (fieldName == EmailAddress)
+        input = check_emailAddress(input);
+    else if (fieldName == Phone)
+        input = check_phone(input);
+    else if (fieldName == BirthdayDate)
+        input = check_birthdayDate(input);
     return(input);
 }
 
-
 void    Contact::set_information(std::string input, int fieldName)
 {
-
     this->Field_value[fieldName] = input;
 }
-
 
 void    Contact::show_contact(void)const
 {

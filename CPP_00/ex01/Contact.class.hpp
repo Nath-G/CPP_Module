@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:06:32 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/21 12:27:25 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:02:10 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ private:
 
         void           set_information(std::string input, int fieldName);
         std::string    check_information(std::string input, int fieldName);
+        std::string    check_birthdayDate(std::string input);
+        std::string    check_firstName(std::string input);
+        std::string    check_lastAndNickName(std::string input);
+        std::string    check_login(std::string input);
+        std::string    check_postalAddress(std::string input);
+        std::string    check_emailAddress(std::string input);
+        std::string    check_phone(std::string input);
+
 public:
         Contact(void);
         ~Contact(void);

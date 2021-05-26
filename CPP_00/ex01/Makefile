@@ -8,7 +8,8 @@ RM			= rm -f
 
 # SRCS *********************************************************************** #
 
-SRCS	=	main.cpp Contact.class.cpp annuaire.cpp
+SRCS	=	main.cpp Contact.class.cpp annuaire.cpp \
+			Contact.class.checkFormat.cpp
 #SRCS		= ${wildcard *.cpp}
 
 # OBJS *********************************************************************** #

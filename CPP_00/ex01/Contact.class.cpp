@@ -54,7 +54,7 @@ std::string  Contact::Field_info[11]  = {
 std::string    Contact::check_information(std::string input, int fieldName)
 {
     if (input == "")
-        return(input);
+        return (input);
     else if (fieldName == FirstName)
         input = check_firstName(input);
     else if (fieldName == LastName || fieldName == NickName || fieldName == FavoriteMeal || fieldName == UnderwearColor)
@@ -71,7 +71,7 @@ std::string    Contact::check_information(std::string input, int fieldName)
         input = check_birthdayDate(input);
     else if (fieldName == DarkestSecret)
         input = check_darkSecret(input);
-    return(input);
+    return (input);
 }
 
 void    Contact::set_information(std::string input, int fieldName)
@@ -89,7 +89,7 @@ void    Contact::show_contact(void)const
         std::cout << Field_name[fieldName] << Field_value[fieldName];
         std::cout << std::endl;
     }
-    return;
+    return ;
 }
 
 void    Contact::show_contact_sumup(int i)const
@@ -136,5 +136,5 @@ int    Contact::add_contact(void)
 
 Contact::~Contact(void)
 {
-    return;
+    return ;
 }

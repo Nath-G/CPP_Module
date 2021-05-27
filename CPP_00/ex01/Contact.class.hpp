@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:06:32 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/26 20:30:40 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/27 13:01:15 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ private:
         std::string    check_emailAddress(std::string input);
         std::string    check_phone(std::string input);
         std::string    check_darkSecret(std::string input);
-
 
 public:
         Contact(void);

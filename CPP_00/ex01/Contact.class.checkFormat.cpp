@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 17:57:27 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/26 21:01:49 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/27 13:00:31 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ std::string    Contact::check_postalAddress(std::string input)
 std::string    Contact::check_emailAddress(std::string input)
 {
     int i = -1;
-    std::size_t found0, found1;
 
     while (input[++i])
     {
@@ -94,16 +93,9 @@ std::string    Contact::check_emailAddress(std::string input)
         && (!(input[i] >= 'a') || !(input[i] <= 'z')))
         {
             input = "";
+            std::cout << "---  Format is not correct ! ---" << std::endl;
             break;
         }
-    }
-    if (((found0 = input.find('@'))
-    && (found0 == std::string::npos)) || (input == "") || ((found1 = input.find('.'))
-    && (found1 == std::string::npos)) || ((found0 > found1)
-    || (found1 == input.length() - 1)) || (found1 == found0 + 1) || (found0 == 0))
-    {
-        input = "";
-        std::cout << "---  Format is not correct ! ---" << std::endl;
     }
     return (input);
 }
@@ -141,7 +133,7 @@ std::string    Contact::check_birthdayDate(std::string input)
         ||  (input[5] == '0' && input[6] == '0') || (input[8] == '0' && input[9] == '0'))
         {
             input = "";
-            break;
+            break ;
         }
     }
     if (input.length() != 10)
@@ -149,7 +141,7 @@ std::string    Contact::check_birthdayDate(std::string input)
         input = "";
         std::cout << "---  Format is not correct ! ---" << std::endl;
     }
-    return(input);
+    return (input);
 }
 
 std::string    Contact::check_darkSecret(std::string input)

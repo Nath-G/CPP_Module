@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 15:41:08 by nagresel          #+#    #+#             */
-/*   Updated: 2021/05/26 19:01:20 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/05/27 13:01:42 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(void)
         }
         else if (cmd == "SEARCH")
         {
-            if(contact[0].exists())
+            if (contact[0].exists())
             {
                 show_contact_list(contact);
                 contact[choose_contact(contact)].show_contact();

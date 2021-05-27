@@ -3,7 +3,7 @@
 
 NAME		= myContactBook
 CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror -g3 -std=c++98 -I.
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -I.
 RM			= rm -f
 
 # SRCS *********************************************************************** #

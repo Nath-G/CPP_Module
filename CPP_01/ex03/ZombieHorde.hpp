@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 17:31:43 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/08 14:10:32 by nagresel         ###   ########.fr       */
+/*   Created: 2021/06/08 12:13:04 by nagresel          #+#    #+#             */
+/*   Updated: 2021/06/08 13:25:10 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-#ifndef ZOMBIE_EVENT_HPP
-# define ZOMBIE_EVENT_HPP
-
-//# include <iostream>
-//# include <string>
-//# include <cstdlib>
 # include "Zombie.hpp"
 
-class ZombieEvent
+class ZombieHorde
 {
-    private:
-        std::string _type;
-        std::string _names[10];
+private:
+    Zombie      *_zombies;
+    int         _zombieNb;
+    std::string _names[10];
 
-    public:
-        
-        ZombieEvent(void);
-        ~ZombieEvent(void);
-        void    setZombieType(std::string _type);
-        Zombie* newZombie(std::string _name);
-        void    randomChump(void);
+public:
+    ZombieHorde(int n);
+    ~ZombieHorde();
+    void    announce() const;
 };
 
 #endif

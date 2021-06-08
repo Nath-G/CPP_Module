@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 17:32:16 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/08 10:16:53 by nagresel         ###   ########.fr       */
+/*   Created: 2021/06/08 14:39:56 by nagresel          #+#    #+#             */
+/*   Updated: 2021/06/08 16:30:34 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-# include <iostream>
-# include <string>
-# include <cstdlib>
+# include "Weapon.hpp"
 
-class Zombie
+class HumanB
 {
-    private:
-        std::string _type;
-        std::string _name;
+private:
+        std::string     _name;
+        Weapon          *_weapon;
+public:
+        HumanB(std::string name);
+        ~HumanB();
 
-    public:
-        Zombie();
-        Zombie(std::string type, std::string name);
-        ~Zombie();
-    
-        void    announce() const;
-        void    setType(std::string type);
-        void    setName(std::string name);
+        void            attack();
+        void            setWeapon(Weapon weapon);
 
 };
 

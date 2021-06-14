@@ -6,23 +6,17 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:31:26 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/08 14:00:26 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:26:50 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "Zombie.hpp"
 #include "ZombieHorde.hpp"
-//#include <iostream>
-//#include <string>
 
 int     main()
 {
 
 	srand(time(0));
 
-    Zombie *testZombie1("mort vivant", "LolName");
-    testZombie1.announce();
-    delete testZombie1;
 	std::cout  << std::endl << "--- TEST#1: Horde of 4 zombies ---" << std::endl;
 	ZombieHorde testHorde1(4);
 	testHorde1.announce();

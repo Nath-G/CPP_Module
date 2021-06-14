@@ -6,14 +6,14 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 18:54:33 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/08 13:47:53 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:31:56 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-
+# include <sstream>
 
 class Brain
 {

@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:41:35 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/16 20:21:19 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/17 17:41:55 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <cstdlib>
 
 class FragTrap
 {
@@ -37,12 +38,14 @@ class FragTrap
 
             unsigned int    melee_damage;
             unsigned int    ranged_damage;
-
+            unsigned int    semicustom_damage;
             FragTrap    &operator=(FragTrap const &rhs);
             void        rangedAttack(std::string const &target);
             void        meleeAttack(std::string const &target);
             void        takeDamage(unsigned int amount);
             void        beRepaired(unsigned int amount);
+            void        vaulthunter_dot_exe(std::string const &target);
+
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:02:26 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/18 13:59:52 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/18 13:00:56 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ FragTrap    &FragTrap::operator=(FragTrap const &rhs)
     melee_damage = rhs.melee_damage;
     ranged_damage = rhs.ranged_damage;
     _armor_damage_reduction = rhs._armor_damage_reduction;
-    semicustom_damage = rhs.semicustom_damage;
     return (*this);
 }
 

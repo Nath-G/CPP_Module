@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:01:38 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/21 19:04:54 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/22 11:11:50 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@
 
 int     main()
 {
+    std::cout << "------------------------------------------------" << std::endl;
+    
     FragTrap B4RBOT("B4R-BOT");
     ScavTrap H010TP("H010-TP");
 
+    std::cout << "------------------------------------------------" << std::endl;
     
     std::cout << std::endl;
 
@@ -37,8 +40,11 @@ int     main()
     B4RBOT.vaulthunter_dot_exe("H010-TP");
     H010TP.takeDamage(B4RBOT.semicustom_damage);
     std::cout << std::endl;
-    
+
+    std::cout << "------------------------------------------------" << std::endl;
     ScavTrap DANTRP("DAN-TRP");
+    std::cout << "------------------------------------------------" << std::endl;
+
     B4RBOT.vaulthunter_dot_exe("DAN-TRP");
     DANTRP.takeDamage(B4RBOT.semicustom_damage);
     std::cout << std::endl;
@@ -58,11 +64,21 @@ int     main()
     B4RBOT.takeDamage(DANTRP.melee_damage);
     std::cout << std::endl;
 
-    NinjaTrap NINJATP("N1NJ4-TP");
+    /*Ninja Attaque */
+    std::cout << "------------------------------------------------" << std::endl;
 
-   NINJATP.ninjaShoebox(B4RBOT);
- //   NINJATP.ninjaShoebox(CLAPPY);
-    NINJATP.ninjaShoebox(DANTRP);
-    NINJATP.ninjaShoebox(NINJATP);
+    NinjaTrap NINJATP("N1NJ4-TP");
+    NinjaTrap CHIYOME("CH1YOME");
+    ClapTrap CLAPPY;
+
+    std::cout << "------------------------------------------------" << std::endl;
     std::cout << std::endl;
+
+    CHIYOME.ninjaShoebox(B4RBOT);
+    CHIYOME.ninjaShoebox(CLAPPY);
+    CHIYOME.ninjaShoebox(DANTRP);
+    CHIYOME.ninjaShoebox(NINJATP);
+    std::cout << std::endl;
+    std::cout << "------------------------------------------------" << std::endl;
+
 }

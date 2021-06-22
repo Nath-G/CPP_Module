@@ -58,27 +58,20 @@ NinjaTrap::~NinjaTrap(void)
 
 void        NinjaTrap::ninjaShoebox(ClapTrap const &target)
 {
-    std::cout << _type << " " << _name << ": \"use a type: " << target.ClapTrap::_type << std::endl;
-    
-std::cout << "lol"  << std::endl;
-    
+    std::cout << "\"Take that!\" " << _type << " " << _name << " uses " << target.ClapTrap::_type << " " << target.ClapTrap::_name << "'s custom attack!" << std::endl;
 }
         
 void        NinjaTrap::ninjaShoebox(FragTrap const &target)
 {
-    std::cout << _type << " " << _name << ": \"use a attack type: " << target.FragTrap::_type << std::endl;
-
+    std::cout << "\"Bop!\"       " << _type << " " << _name << " uses " << target.FragTrap::_type << " " << target.FragTrap::_name << "'s custom attack!" << std::endl;
 }
 void        NinjaTrap::ninjaShoebox(ScavTrap const &target)
 {
-   
-    std::cout << _type << " " << _name << ": \"use a attack type: " << target.ScavTrap::_type << std::endl;
-
+    std::cout << "\"Hyah!\"      " << _type << " " << _name << " uses " << target.ScavTrap::_type << " " << target.ScavTrap::_name << "'s custom attack!" << std::endl;
 }
 
 void        NinjaTrap::ninjaShoebox(NinjaTrap const &target)
 {
-    std::cout << _type << " " << _name << ": \"use a attack type: " << target.NinjaTrap::_type << std::endl;
-
+    std::cout << "\"Heyyah!\"    " << _type << " " << _name << " uses " << target.NinjaTrap::_type << " " << target.NinjaTrap::_name << "'s custom attack!" << std::endl;
 }
 

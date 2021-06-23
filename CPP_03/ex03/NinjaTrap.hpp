@@ -15,17 +15,17 @@
 
 # include <string>
 # include <iostream>
-# include <cstdlib>
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
-
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
 class NinjaTrap : public ClapTrap
 {
     
 private:
+
 protected:
+
 public:
     NinjaTrap();
     NinjaTrap(std::string name);

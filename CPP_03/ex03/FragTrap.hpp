@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:58:18 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/21 18:43:45 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:22:51 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string>
 # include <iostream>
 # include <cstdlib>
-#include "ClapTrap.hpp"
+# include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap
 {

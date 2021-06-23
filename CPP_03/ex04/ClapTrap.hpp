@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:41:35 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/23 13:18:07 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:29:11 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include <string>
 # include <iostream>
-//# include <cstdlib>
 
 class ClapTrap
 {
     private:
+
     protected:
             unsigned int    _hit_points;
             unsigned int    _max_hit_points;

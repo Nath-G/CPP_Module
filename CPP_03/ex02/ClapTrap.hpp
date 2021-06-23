@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:41:35 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/21 15:53:43 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:23:54 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 class ClapTrap
 {
-
     private:
+
     protected:
             std::string     _name;
             std::string     _type;
@@ -31,10 +31,8 @@ class ClapTrap
             unsigned int    _level;
             unsigned int    _armor_damage_reduction;
 
-
     public:
         ClapTrap();
-    //    ClapTrap(std::string name);
         ClapTrap(ClapTrap const &copy);
         ~ClapTrap(void);
 

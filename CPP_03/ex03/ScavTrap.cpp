@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:59:46 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/21 16:17:10 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:18:31 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ ScavTrap::~ScavTrap(void)
 {
     std::cout  << _type << " " << _name << ": \"Meat confetti!\" (ScavTrap destructor)" << std::endl;
 }
-
 
 void    ScavTrap::initChallenges()
 {

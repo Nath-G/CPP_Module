@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:01:38 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/18 11:59:22 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:27:24 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,4 @@ int     main()
     DANTRP.vaulthunter_dot_exe("VR-ON1CA");
     VRON1CA.takeDamage(DANTRP.semicustom_damage);
     std::cout << std::endl;
-    
 }

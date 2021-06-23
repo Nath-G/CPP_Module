@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:41:35 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/22 10:21:14 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:16:43 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class ClapTrap
 {
 
     private:
+
     protected:
-        //    std::string     _name;
-     //       std::string     _type;
             unsigned int    _hit_points;
             unsigned int    _max_hit_points;
             unsigned int    _nrj_points;
@@ -31,10 +30,8 @@ class ClapTrap
             unsigned int    _level;
             unsigned int    _armor_damage_reduction;
 
-
     public:
         ClapTrap();
-    //    ClapTrap(std::string name);
         ClapTrap(ClapTrap const &copy);
         ~ClapTrap(void);
 

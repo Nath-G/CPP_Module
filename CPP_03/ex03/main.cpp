@@ -6,14 +6,13 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:01:38 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/23 11:52:46 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:17:17 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "NinjaTrap.hpp"
-
 
 int     main()
 {

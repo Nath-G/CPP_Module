@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:59:46 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/23 13:24:26 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:19:41 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
 
 FragTrap::FragTrap(FragTrap const &copy) : ClapTrap(copy)
 {
-    std::cout  << type << " Copy class from ClapTrap(copy)" << std::endl;
+    std::cout  << type << " Copy class from ClapTrap" << std::endl;
 }
 
 FragTrap::~FragTrap(void)

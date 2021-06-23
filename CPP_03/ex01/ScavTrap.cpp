@@ -6,12 +6,11 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 10:24:53 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/18 17:13:10 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:26:38 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-
 
 ScavTrap::ScavTrap(): _name("Jane Doe"), _hit_points(100), _max_hit_points(100),
                     _nrj_points(50), _max_nrj_points(50), _level(1),
@@ -69,7 +68,6 @@ void    ScavTrap::initChallenges()
     this->_challenges[1] = &ScavTrap::wetTshirtChallenge;
     this->_challenges[2] = &ScavTrap::armWrestlingChallenge;
     this->_challenges[3] = &ScavTrap::oneFeetChallenge;
-
 }
 
 void    ScavTrap::rangedAttack(std::string const &target)
@@ -126,4 +124,3 @@ void    ScavTrap::oneFeetChallenge(std::string const &target)
 {
     std::cout << "SC4V-TP " << _name << ": \"Boiyoiyoiyoiyoing! I'm sure I can stay one one feet more time than you," << target << " ?!!! \""<< std::endl;
 }
-

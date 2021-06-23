@@ -15,15 +15,15 @@
 
 # include <string>
 # include <iostream>
-//# include <cstdlib>
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
 
 class NinjaTrap : public virtual ClapTrap
 {
 private:
+
 protected:
         const static int     _nrj_points = 120;
         const static int     _max_nrj_points = 120;

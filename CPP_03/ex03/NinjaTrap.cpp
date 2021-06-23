@@ -26,7 +26,6 @@ NinjaTrap::NinjaTrap():ClapTrap()
     std::cout  << _type << " " << _name 
     << ": \"I'm a robot ninja...\" (NinjaTrap constructor)"
     << std::endl;
-    srand(time(NULL));
 }
 
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap()
@@ -43,7 +42,6 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap()
     std::cout << _type << " " << _name 
     << ": \"Merciless Killing Machine: The inner workings of a monicidal apparatus.\" (NinjaTrap constructor)"
     << std::endl;
-    srand(time(NULL));
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const &copy) : ClapTrap(copy)
@@ -74,4 +72,3 @@ void        NinjaTrap::ninjaShoebox(NinjaTrap const &target)
 {
     std::cout << "\"Heyyah!\"    " << _type << " " << _name << " uses " << target.NinjaTrap::_type << " " << target.NinjaTrap::_name << "'s custom attack!" << std::endl;
 }
-

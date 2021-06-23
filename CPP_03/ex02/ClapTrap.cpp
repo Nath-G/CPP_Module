@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:02:26 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/21 16:18:41 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:23:39 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ ClapTrap::ClapTrap(ClapTrap const &copy) : _name("Clappy std")
 }
 
 ClapTrap::~ClapTrap()
-
 {
     std::cout << _type << " " << _name << ": \"Ooh, squishy bits!\" (ClapTrap destructor)" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:58:18 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/21 15:35:18 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:23:18 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string>
 # include <iostream>
 # include <cstdlib>
-#include "ClapTrap.hpp"
+# include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap
 {
@@ -28,7 +28,9 @@ private:
         void    wetTshirtChallenge(std::string const &target);
         void    armWrestlingChallenge(std::string const &target);
         void    oneFeetChallenge(std::string const &target);
+
 protected:
+
 public:
     ScavTrap();
     ScavTrap(std::string name);

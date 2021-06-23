@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 11:54:50 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/23 13:20:48 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:21:43 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,16 @@
 
 # include <string>
 # include <iostream>
-//# include <cstdlib>
-
-#include "FragTrap.hpp"
-#include "NinjaTrap.hpp"
-//#include "SuperTrap.hpp"
-
+# include "FragTrap.hpp"
+# include "NinjaTrap.hpp"
 
 class SuperTrap : public NinjaTrap, public FragTrap
 {
     
 private:
+
 protected:
+
 public:
     SuperTrap();
     SuperTrap(std::string Name);

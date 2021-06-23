@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:59:46 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/21 16:19:25 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:16:59 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,4 @@ void        FragTrap::vaulthunter_dot_exe(std::string const &target)
     std::cout << _type << " " << _name << attacks[std::rand() % 5] << target << std::endl;
     std::cout << _type << " " << _name << " has now " << this->_nrj_points << " energy points." << std::endl;
     return;
-
 }

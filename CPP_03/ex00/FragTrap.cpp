@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 13:02:26 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/18 13:59:52 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:27:07 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ FragTrap::FragTrap(FragTrap const &copy)
 }
 
 FragTrap::~FragTrap()
-
 {
     std::cout << "FR4G-TP "<< _name << ": \"Ooh, squishy bits!\"" << std::endl;
 }
@@ -113,6 +112,4 @@ void        FragTrap::vaulthunter_dot_exe(std::string const &target)
     std::cout << "FR4G-TP " << _name << attacks[std::rand() % 5] << target << " causing " << this->semicustom_damage << " damage points." << std::endl;
     std::cout << "FR4G-TP " << _name << " has now " << this->_nrj_points << " energy points." << std::endl;
     return;
-
 }
-

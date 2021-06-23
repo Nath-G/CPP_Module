@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:01:38 by nagresel          #+#    #+#             */
-/*   Updated: 2021/06/22 11:11:50 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/06/23 11:52:46 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int     main()
     std::cout << std::endl;
         
     H010TP.rangedAttack("B4R-BOT");
-    B4RBOT.takeDamage(B4RBOT.ranged_damage);
+    B4RBOT.takeDamage(H010TP.ranged_damage);
     std::cout << std::endl;
         
     B4RBOT.vaulthunter_dot_exe("H010-TP");

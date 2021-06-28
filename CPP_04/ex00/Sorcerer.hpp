@@ -25,7 +25,7 @@ class Sorcerer
 		void		setName(const std::string name);
 		std::string	getTitle(void) const;
 		void		setTitle(const std::string title);
-		void		polymorph(const Victim & target) const;
+		void		polymorph(const Victim & target)const;
 };
 
 std::ostream	&operator<<(std::ostream & os, Sorcerer const & rsh);

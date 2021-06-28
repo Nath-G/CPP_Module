@@ -65,7 +65,7 @@ std::ostream &operator<<(std::ostream &os, const Sorcerer & rsh)
 	return (os);
 }
 
-void	Sorcerer::polymorph(const Victim & target) const
+void	Sorcerer::polymorph(Victim const & target)const
 {
-	Victim::target.getPolymorphed();
+	target.getPolymorphed();
 }

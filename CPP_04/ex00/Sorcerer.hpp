@@ -16,19 +16,18 @@ class Sorcerer
 
 	public:
 		Sorcerer(std::string name, std::string title);
-		Sorcerer(const Sorcerer & src);
+		Sorcerer(Sorcerer const & src);
 		virtual ~Sorcerer();
 
-		Sorcerer		&operator=(const Sorcerer & src);
+		Sorcerer		&operator=(Sorcerer const & src);
 
 		std::string	getName(void) const;
 		void		setName(const std::string name);
 		std::string	getTitle(void) const;
 		void		setTitle(const std::string title);
-	//	void		polymorph(Victim const &target)const;
-
+		void		polymorph(const Victim & target) const;
 };
 
-std::ostream	&operator<<(std::ostream & os, const Sorcerer & rsh);
+std::ostream	&operator<<(std::ostream & os, Sorcerer const & rsh);
 
 #endif

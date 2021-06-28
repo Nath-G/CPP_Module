@@ -6,8 +6,10 @@ CC			= 	clang++
 CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
 SRCS		=	main.cpp \
-				Sorcerer.cpp \
 				Victim.cpp \
+				Sorcerer.cpp \
+				Peon.cpp \
+				Donkey.cpp \
 
 OBJS		=	$(SRCS:.cpp=.o)
 

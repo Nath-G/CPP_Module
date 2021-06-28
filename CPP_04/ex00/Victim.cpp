@@ -1,15 +1,8 @@
 # include "Victim.hpp"
 
 // Default constructor
-Victim::Victim(void)
-{
-	std::cout << GREY << "Victim creation..." << C_RES << std::endl;
-	return ;
-	
-}
-
-// Parametric constructor (std::string)
-Victim::Victim(std::string name, std::string title) : _name(name), _title(title)
+// Parametric constructor (std::string
+Victim::Victim(std::string name) : _name(name)
 {
 	std::cout << GREY << "Some random victim called "
 	<< _name << " just appeared!" << C_RES << std::endl;
@@ -23,8 +16,6 @@ Victim::Victim(const Victim& src)
 	*this = src;
 	return;
 }
-
-
 
 // Destructor
 Victim::~Victim(void)
@@ -42,7 +33,6 @@ Victim &	Victim::operator=(const Victim& rhs)
 	if (this != &rhs)
 	{
 		this->_name = rhs.getName();
-		this->_title = rhs.getTitle();
 	}
 	return (*this);
 }
@@ -59,25 +49,12 @@ void Victim::setName(const std::string name)
 	return ;
 }
 
-std::string Victim::getTitle(void) const
-{
-	return (this->_title);
-}
-
-void Victim::setTitle(const std::string title)
-{
-	this->_title = title;
-	return ;
-}
-
-// overload de <<
 std::ostream &operator<<(std::ostream &os, const Victim & rsh)
 {
-	//I'm NAME and I like otters!
-
 	os << "I'm " << rsh.getName() << ", and I like others!" << std::endl;
 	return (os);
 }
+
 void		Victim::getPolymorphed() const
 {
 	std::cout << _name << " has been turned into a cute little sheep!" << std::endl;

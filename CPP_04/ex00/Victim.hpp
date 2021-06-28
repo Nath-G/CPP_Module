@@ -9,25 +9,22 @@
 class Victim
 {
 	private:
-
+		std::string	_name;
 		Victim(); //can’t be instanciated without parameters 
 
 	public:
-		Victim(std::string name, std::string title);
-		Victim(const Victim & src);
+		Victim(std::string name);
+		Victim(Victim const & src);
 		virtual ~Victim();
 
-		std::string	_name;
-		std::string	_title;
+
 		std::string	getName(void) const;
 		void		setName(const std::string name);
-		std::string	getTitle(void) const;
-		void		setTitle(const std::string title);
 
-		Victim		&operator=(const Victim & src);
-		void		getPolymorphed() const;
+		Victim		&operator=(Victim const & src);
+		virtual void		getPolymorphed() const;
 };
 
-std::ostream	&operator<<(std::ostream & os, const Victim & rsh);
+std::ostream	&operator<<(std::ostream & os, Victim const & rsh);
 
 #endif

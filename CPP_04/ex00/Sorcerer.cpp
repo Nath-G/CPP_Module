@@ -1,13 +1,5 @@
 # include "Sorcerer.hpp"
 
-// Default constructor
-Sorcerer::Sorcerer(void)
-{
-	std::cout << GREY << "Sorcerer creation..." << C_RES << std::endl;
-	return ;
-	
-}
-
 // Parametric constructor (std::string)
 Sorcerer::Sorcerer(std::string name, std::string title) : _name(name), _title(title)
 {
@@ -73,9 +65,7 @@ std::ostream &operator<<(std::ostream &os, const Sorcerer & rsh)
 	return (os);
 }
 
-/*
-void	Sorcerer::polymorph(const Victim &target)const
+void	Sorcerer::polymorph(const Victim & target) const
 {
-	target.getPolymorphed();
+	Victim::target.getPolymorphed();
 }
-*/

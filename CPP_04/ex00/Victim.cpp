@@ -1,6 +1,5 @@
 # include "Victim.hpp"
 
-// Default constructor
 // Parametric constructor (std::string
 Victim::Victim(std::string name) : _name(name)
 {

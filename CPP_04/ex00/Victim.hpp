@@ -1,7 +1,6 @@
 #ifndef VICTIM_HPP
 # define VICTIM_HPP
 
-//# include "Sorcerer.hpp"
 # include <iostream>
 # include <string>
 # include "color.hpp"

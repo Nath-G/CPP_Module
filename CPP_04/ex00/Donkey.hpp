@@ -2,7 +2,6 @@
 # define Donkey_HPP
 
 # include "Victim.hpp"
-//# include "Sorcerer.hpp"
 # include <iostream>
 # include <string>
 # include "color.hpp"

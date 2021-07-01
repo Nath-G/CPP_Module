@@ -6,7 +6,7 @@
 # include "color.hpp"
 # include "AWeapon.hpp"
 
-class PowerFist : public AWeapon
+class PowerFist : virtual public AWeapon
 {
 	private:
 		const std::string	_OutputOfAttack;

@@ -19,6 +19,7 @@ class Character
 		Character(const std::string &name);
 		Character(const Character & src);
 		~Character();
+		Character	&operator=(const Character & src);
 
 		std::string	getName(void) const;
 		void		setName(const std::string name);
@@ -26,13 +27,10 @@ class Character
 		void		setAP(const int AP);
 		AWeapon		*getWeapon(void) const;
 		//void		setWeapon(const AWeapon*);
-
-
 		void		recoverAP();
 		void		equip(AWeapon*);
 		void		attack(Enemy*);
 
-		Character	&operator=(const Character & src);
 };
 
 std::ostream	&operator<<(std::ostream & os, const Character & src);

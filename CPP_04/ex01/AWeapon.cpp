@@ -1,18 +1,8 @@
 # include "AWeapon.hpp"
 
-// Default constructor
-
- AWeapon:: AWeapon(void)
-{
-	std::cout << GREY << "AWeapon creation..." << C_RES << std::endl;
-	return ;
-}
-
 // Parametric constructor (std::string &)
 AWeapon::AWeapon(std::string const & name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage)
 {
-	//damage = _damage;
-	//name = _name;
 	return ;
 }
 

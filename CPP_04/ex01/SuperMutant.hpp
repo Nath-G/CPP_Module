@@ -6,7 +6,7 @@
 # include "color.hpp"
 # include "Enemy.hpp"
 
-class SuperMutant : public Enemy
+class SuperMutant : virtual public Enemy
 {
 	private:
 	//	int			_hp;

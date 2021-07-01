@@ -13,15 +13,13 @@ class AWeapon
     protected:
 		std::string	_name;
 		int			_apcost;
-		int			_damage;	
+		int			_damage;
 
 	public:
 		AWeapon(std::string const &name, int apcost, int damage);
 		AWeapon(const  AWeapon & src);
 		virtual ~AWeapon();
 
-		//int			damage;
-	//	std::string	name;
 		std::string	getName() const;
 		void		setName(const std::string name);
 		int			getAPCost() const;

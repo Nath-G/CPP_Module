@@ -1,26 +1,13 @@
 # include "Character.hpp"
 
-// Default constructor
-Character::Character(void)
-{
-	std::cout << GREY << "Character creation..." << C_RES << std::endl;
-	this->_name = "What ever";
-	this->_ap = 40;
-	this-> _weapon = NULL;
-	return ;
-}
-
 // Parametric constructor (std::string &)
 Character::Character(const std::string & name) : _name(name), _ap(40), _weapon(NULL)
 {
-	std::cout << GREY << "Character creation..." << C_RES << std::endl;
-	return ;
 }
 
 // Copy constructor
 Character::Character(const Character& src)
 {
-	std::cout << GREY << "Character creation..." << C_RES << std::endl;
 	*this = src;
 	return;
 }
@@ -28,19 +15,16 @@ Character::Character(const Character& src)
 // Destructor
 Character::~Character(void)
 {
-	std::cout << GREY << "Character destruction..." << C_RES << std::endl;
-	return;
 }
 
 // Assignation operator
-Character &	Character::operator=(const Character& rhs)
+Character &	Character::operator=(const Character& src)
 {
-	std::cout << GREY << "Character Assignation operator called" << C_RES << std::endl;
-	if (this != &rhs)
+	if (this != &src)
 	{
-		this->_name = rhs.getName();
-		this->_ap = rhs.getAP();
-		this->_weapon = rhs.getWeapon();
+		this->_name = src.getName();
+		this->_ap = src.getAP();
+		this->_weapon = src.getWeapon();
 	}
 	return (*this);
 }
@@ -75,8 +59,10 @@ AWeapon			*Character::getWeapon() const
 
 void Character::recoverAP()
 {
-	std::cout << GREY << "recoverAP called" << C_RES << std::endl;
-	return ;
+	if (_ap < 40)
+		_ap += 10;
+	_ap = (_ap > 40) ? 40 : _ap;
+	return;
 }
 
 void Character::equip(AWeapon *weapon)
@@ -87,29 +73,28 @@ void Character::equip(AWeapon *weapon)
 
 void Character::attack(Enemy *target)
 {
-	if (!target)
+	if (!(target->getHP()) || !target)
 	{
 		std::cout << *this << std::endl;
 		return;
 	}
 	else if (!_weapon)
 		return;
-	else if (_ap < _weapon->getAPCost())
-		return;
-	else if (!target->getHP())
+	else if ( _weapon->getAPCost() &&_ap < _weapon->getAPCost())
 	{
-		std::cout << YELLOW << *this << std::endl;
+		std::cout << GREY << _name << " has not enought Action Points to use " << _weapon->getName() << C_RES << std::endl;
 		return;
+
 	}
-	std::cout << CYAN << _name << " attacks " << target->getType() << " with a " << *_weapon << C_RES << std::endl;
+	std::cout << YELLOW << _name << " attacks " << target->getType() << " with a "
+	<< *_weapon << C_RES << std::endl;
 	_weapon->attack();
 	target->takeDamage(_weapon->getDamage());
 	_ap = _ap - _weapon->getAPCost();
-	std::cout << _name << " action points amount is " << _ap << std::endl;//A ENLEVER
-	if (!target->getHP())
+	if (!(target->getHP()))
 	{
-		target = NULL;
-		delete(target);
+		delete target;
+		return;
 	}
 	return ;
 }
@@ -118,9 +103,9 @@ void Character::attack(Enemy *target)
 std::ostream &operator<<(std::ostream &os, const Character & src)
 {
 	if(src.getWeapon())
-		os << YELLOW << src.getName() << " has " << src.getAP() << " AP and wields a " << src.getWeapon()->getName() << C_RES << std::endl;
+		os << BLUE << src.getName() << " has " << src.getAP() << " AP and wields a " << src.getWeapon()->getName() << C_RES << std::endl;
 	else
-		os << YELLOW << src.getName() << " has " << src.getAP() <<  " AP and is unarmed" << C_RES << std::endl;
+		os << GREEN_B << src.getName() << " has " << src.getAP() <<  " AP and is unarmed" << C_RES << std::endl;
 	return (os);
 }
 

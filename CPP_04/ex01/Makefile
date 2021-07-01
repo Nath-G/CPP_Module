@@ -8,10 +8,13 @@ CFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -g3
 SRCS		=	main.cpp \
 				AWeapon.cpp \
 				PlasmaRifle.cpp \
+				Flamethrower.cpp \
+				Flowerthrower.cpp \
 				PowerFist.cpp \
 				Enemy.cpp \
 				SuperMutant.cpp \
 				RadScorpion.cpp \
+				Piggsy.cpp \
 				Character.cpp \
 
 OBJS		=	$(SRCS:.cpp=.o)

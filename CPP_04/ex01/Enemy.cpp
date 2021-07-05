@@ -55,8 +55,6 @@ void Enemy::setType(const std::string type)
 
 void Enemy::takeDamage(int damage)
 {
-    unsigned int is_alive = 1;
-
 	if (damage < 0)
 		return;
 	_hp = (damage < _hp) ? (_hp - damage) : 0;

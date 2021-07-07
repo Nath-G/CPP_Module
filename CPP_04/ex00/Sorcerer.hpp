@@ -1,10 +1,14 @@
 #ifndef SORCERER_HPP
 # define SORCERER_HPP
 
+// Colors
+# define GREY		"[90m"
+# define C_RES		"[0m"
+
 # include <iostream>
 # include <string>
 # include "Victim.hpp"
-# include "color.hpp"
+
 
 class Sorcerer
 {

@@ -1,10 +1,13 @@
 #ifndef PEON_HPP
 # define PEON_HPP
 
+// Colors
+# define GREY		"[90m"
+# define C_RES		"[0m"
+
 # include "Victim.hpp"
 # include <iostream>
 # include <string>
-# include "color.hpp"
 
 class Peon : virtual public Victim
 {

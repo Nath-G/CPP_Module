@@ -1,9 +1,18 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
+// Colors
+# define GREY		"[90m"
+# define C_RES		"[0m"
+# define YELLOW		"[33m"
+# define BLUE		"[34m"
+# define COLOR(id)	"[38;5;"#id"m"
+# define CORAIL		COLOR(168)
+# define GREEN_B	"[32;01m"
+
+
 # include <iostream>
 # include <string>
-# include "color.hpp"
 # include "AWeapon.hpp"
 # include "Enemy.hpp"
 

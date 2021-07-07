@@ -25,6 +25,6 @@ Flowerthrower &	Flowerthrower::operator=(const Flowerthrower& src)
 
 void Flowerthrower::attack(void) const
 {
-	std::cout << GREEN << this->_OutputOfAttack << C_RES << std::endl;
+	std::cout << GREEN_B << this->_OutputOfAttack << C_RES << std::endl;
 	return ;
 }

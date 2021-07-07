@@ -1,9 +1,13 @@
 #ifndef VICTIM_HPP
 # define VICTIM_HPP
 
+// Colors
+# define GREY		"[90m"
+# define C_RES		"[0m"
+
 # include <iostream>
 # include <string>
-# include "color.hpp"
+
 
 class Victim
 {

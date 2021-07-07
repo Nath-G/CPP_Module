@@ -8,7 +8,7 @@
 # include "Enemy.hpp"
 # include "Character.hpp"
 
-# include "color.hpp"
+//# include "color.hpp"
 
 int main(void)
 {

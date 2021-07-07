@@ -9,7 +9,7 @@
 class MateriaSource : public virtual IMateriaSource
 {
     private:
-        AMateria    *_learn[4];
+     //   AMateria    *_learn[4];
         AMateria    *_source[4];
         void        deleteSource();
         void        copySource(MateriaSource const &target);

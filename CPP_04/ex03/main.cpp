@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:21:43 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/09 16:31:59 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/09 19:16:56 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ Character bill("bill");
 	std::cout << "index 1: cure  " << cure->getXP() << " " << cure->getType() << std::endl;
 	std::cout << "index 2: cury " << cury->getXP() << " " << cury->getType() << std::endl;
 	std::cout << "index 3: icy (uneq) " << icy->getXP() << " " << icy->getType() << std::endl;
+
+delete icy;
 }
 
 void	subject_test()
@@ -136,7 +138,7 @@ int main()
 		me->equip(tmp);
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
-		me->use(1, *me);
+	//	me->use(1, *me);
 		std::cout << "tmp (equiped on 1) XP is: " << tmp->getXP() << std::endl;
 
 	std::cout << std::endl;
@@ -156,13 +158,13 @@ int main()
 		AMateria *icy = new Ice;
 	//	ICharacter *bob = new Character("Bob");
 
-		me2->equip(tmp); //cure
-		me2->equip(ice);
-		me2->equip(icy);
+		me2->equip(cure); //cureindex2
+		me2->equip(ice);//index3
+		me2->equip(icy);//index 4 does not exist
 
-		std::cout << "Cure(equiped on 0) XP is: " << cure->getXP() << std::endl;
-		std::cout << "Ice (equipped on 1) XP is: " << ice->getXP() << std::endl;
-		std::cout << "Icy (equipped on 2) XP is: " << icy->getXP() << std::endl;
+		std::cout << "Cure(equiped on 2) XP is: " << cure->getXP() << std::endl;
+		std::cout << "Ice (equipped on 3) XP is: " << ice->getXP() << std::endl;
+		std::cout << "Icy (unequipped) XP is: " << icy->getXP() << std::endl;
 		std::cout << "Cury (unequipped) XP is: " << cury->getXP() << std::endl;
 	
 	std::cout << std::endl;
@@ -175,17 +177,17 @@ int main()
 		me2->use(3, *bob);
 		me2->use(10, *bob);
 		me2->use(-1, *bob);
-		std::cout << "Cure(equiped on 0) XP is: " << cure->getXP() << std::endl;
-		std::cout << "Ice (equipped on 1) XP is: " << ice->getXP() << std::endl;
-		std::cout << "Icy (equipped on 2) XP is: " << icy->getXP() << std::endl;
+		std::cout << "Cure(equiped on 2) XP is: " << cure->getXP() << std::endl;
+		std::cout << "Ice (equipped on 3) XP is: " << ice->getXP() << std::endl;
+		std::cout << "Icy (unequipped) XP is: " << icy->getXP() << std::endl;
 		std::cout << "Cury (unequipped) XP is: " << cury->getXP() << std::endl;
 	std::cout << std::endl;
 
 
 	std::cout << BLUE << "-- unequiping materias 2 and 3 and trying again --" << C_RES << std::endl;
 	std::cout << std::endl;
-		me2->unequip(2);//icy
-		me2->unequip(3);
+		me2->unequip(2);//ex cure
+		me2->unequip(3);//ex ice
 
 		me2->use(0, *bob);
 		me2->use(1, *bob);
@@ -193,8 +195,8 @@ int main()
 		me2->use(3, *bob);
 		me2->use(10, *bob);
 		me2->use(-1, *bob);
-		std::cout << "Cure (equiped on 0) XP is: " <<cure->getXP() << std::endl;
-		std::cout << "Ice(equiped on 1) XP is: " << ice->getXP() << std::endl;
+		std::cout << "Cure (unequipped) XP is: " <<cure->getXP() << std::endl;
+		std::cout << "Ice(unequipped) XP is: " << ice->getXP() << std::endl;
 		std::cout << "Icy (unequipped) XP is: " << icy->getXP() << std::endl;
 		std::cout << "Cury(unequipped) XP is: " << cury->getXP() << std::endl;
 	std::cout << std::endl;
@@ -209,8 +211,8 @@ int main()
 		me2->use(3, *bob);
 		me2->use(10, *bob);
 		me2->use(-1, *bob);
-		std::cout << "Cure (equiped on 0) XP is: " << cure->getXP() << std::endl;
-		std::cout << "Ice (equiped on 1) XP is: " << ice->getXP() << std::endl;
+		std::cout << "Cure (unequiped) XP is: " << cure->getXP() << std::endl;
+		std::cout << "Ice (unequiped) XP is: " << ice->getXP() << std::endl;
 		std::cout << "Cury (equiped on 2) XP is: " << cury->getXP() << std::endl;
 		std::cout << "Icy (equiped on 3) XP is: " << icy->getXP() << std::endl;
 	std::cout << std::endl;
@@ -219,6 +221,8 @@ int main()
 		delete bob;
 		delete me2;
 		delete src;
+		delete cure;
+		delete ice;
 	std::cout << std::endl;
 
 	return (0);

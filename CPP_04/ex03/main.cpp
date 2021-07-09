@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:21:43 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/09 19:16:56 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/09 19:39:52 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,6 @@ int main()
 		me->equip(tmp);
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
-	//	me->use(1, *me);
 		std::cout << "tmp (equiped on 1) XP is: " << tmp->getXP() << std::endl;
 
 	std::cout << std::endl;
@@ -150,13 +149,10 @@ int main()
 	std::cout << std::endl;
 
 	std::cout << BLUE << "-- creating ice and cure and equipping more (testing with too much) Materia --" << C_RES << std::endl;
-
-		
 		AMateria *cure = new Cure;
 		AMateria *ice = new Ice;
 		AMateria *cury = new Cure;
 		AMateria *icy = new Ice;
-	//	ICharacter *bob = new Character("Bob");
 
 		me2->equip(cure); //cureindex2
 		me2->equip(ice);//index3

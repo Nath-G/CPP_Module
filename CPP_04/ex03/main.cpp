@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:21:43 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/09 19:39:52 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/12 08:47:42 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ Character bill("bill");
 	std::cout << "index 1: cure  " << cure->getXP() << " " << cure->getType() << std::endl;
 	std::cout << "index 2: cury " << cury->getXP() << " " << cury->getType() << std::endl;
 	std::cout << "index 3: icy (uneq) " << icy->getXP() << " " << icy->getType() << std::endl;
-
-delete icy;
+//delete icy;
 }
 
 void	subject_test()
 {
+	
 	IMateriaSource* src = new MateriaSource();
 src->learnMateria(new Ice());
 src->learnMateria(new Cure());
@@ -217,8 +217,8 @@ int main()
 		delete bob;
 		delete me2;
 		delete src;
-		delete cure;
-		delete ice;
+	//	delete cure;
+	//	delete ice;
 	std::cout << std::endl;
 
 	return (0);

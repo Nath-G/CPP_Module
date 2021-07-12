@@ -9,9 +9,14 @@ class Character : public virtual ICharacter
     private:
         std::string _name;
         AMateria    *_inventory[4];
+        AMateria    *_oldMateria[10];
+
         Character();
         void        deleteInventory();
         void        copyInventory(Character const &target);
+        void        addToOldMateria(AMateria *target);
+        void        removeFromOldMateriaOldMateria(AMateria *target);
+
 
     public:
         Character(std::string const &name);

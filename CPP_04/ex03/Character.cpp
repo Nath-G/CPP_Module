@@ -4,6 +4,8 @@ Character::Character(std::string const &name) : _name(name)
 {
     for (int i = 0; i < 4; i++)
         this->_inventory[i] = NULL;
+    for (int i = 0; i < 10; i++)
+        this->_oldMateria[i] = NULL;
 }
 
 Character::Character(Character const &src)
@@ -16,22 +18,30 @@ Character::Character(Character const &src)
 Character::~Character()
 {
      for (int i = 0; i < 4; i++)
-        delete _inventory[i];
+        delete _inventory[i];     
+    for (int i = 0; i < 10; i++)
+        delete _oldMateria[i];
 }
 
 Character       &Character::operator=(Character const &rhs)
 {
     for (int i = 0; i < 4; i++)
         delete _inventory[i];
-
    for (int i = 0; i < 4; i++)
     {
         this->_inventory[i] = NULL;
         if (rhs._inventory[i])
             this->_inventory[i] = rhs._inventory[i]->clone();
     }
+    for (int i = 0; i < 10; i++)
+        delete _oldMateria[i];
+    for (int i = 0; i < 10; i++)
+    {
+        this->_oldMateria[i] = NULL;
+        if (rhs._oldMateria[i])
+            this->_oldMateria[i] = rhs._oldMateria[i]->clone();
+    }
     _name = rhs._name;
-   
     return(*this);
 }
 
@@ -51,11 +61,12 @@ void        Character::equip(AMateria *m)
 	{
 		if (this->_inventory[i] == NULL)
 		{
-			this->_inventory[i] = m;
+			removeFromOldMateriaOldMateria(m);
+            this->_inventory[i] = m;
 			return;
 		}
-     //   if (this->_inventory[i] == m)
-	 //       return ;
+        if (this->_inventory[i] == m)
+	        return ;
 	}
 }
 
@@ -64,7 +75,10 @@ void        Character::unequip(int idx)
     if (idx < 0 || idx > 3)
         return ;
     if (_inventory[idx])
+    {
+        addToOldMateria(_inventory[idx]);
         this->_inventory[idx] = NULL;
+    }
 }
 
 void        Character::use(int idx, ICharacter &target)
@@ -74,4 +88,37 @@ void        Character::use(int idx, ICharacter &target)
     if (_inventory[idx])
        this->_inventory[idx]->use(target);
     return;
+}
+
+void        Character::addToOldMateria(AMateria *target)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        if (_oldMateria[i] && target == _oldMateria[i])
+            return;
+        if (_oldMateria[i] == NULL)
+        {
+            _oldMateria[i] = target;
+            return;
+        }
+    }
+    return;
+}
+void        Character::removeFromOldMateriaOldMateria(AMateria *target)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        if (_oldMateria[i] == target)
+        {
+            _oldMateria[i] = NULL;
+            {
+                while (i < 10 && _oldMateria[i + 1] != NULL)
+                {
+                    _oldMateria[i] = _oldMateria[i + 1];
+                    _oldMateria[i + 1] = NULL;
+                    i++;
+                }
+            }
+        }
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:21:43 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/13 09:53:40 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:46:50 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,7 @@ int main()
 		me2->equip(cure); //index2
 		me2->equip(ice);//index3
 		me2->equip(icy);//index 4 does not exist
+		me2->equip(cury);//index 5 does not exist
 		std::cout << "tmp (equiped on 1 from me) XP is: " << tmp->getXP() << std::endl;
 		std::cout << "Cure(equiped on 2) XP is: " << cure->getXP() << std::endl;
 		std::cout << "Ice (equipped on 3) XP is: " << ice->getXP() << std::endl;

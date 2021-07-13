@@ -73,7 +73,7 @@ void			    Character::setName(const std::string name)
 
 void        Character::equip(AMateria *m)
 {
-	for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] == NULL)
 		{
@@ -81,9 +81,10 @@ void        Character::equip(AMateria *m)
             this->_inventory[i] = m;
 			return;
 		}
-        if (this->_inventory[i] == m)
-	        return ;
+    //    if (this->_inventory[i] == m)
+	//        return ;
 	}
+    addToOldMateria(m);
 }
 
 void        Character::unequip(int idx)

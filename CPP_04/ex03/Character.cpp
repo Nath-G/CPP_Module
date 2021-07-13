@@ -81,8 +81,8 @@ void        Character::equip(AMateria *m)
             this->_inventory[i] = m;
 			return;
 		}
-    //    if (this->_inventory[i] == m)
-	//        return ;
+        if (this->_inventory[i] == m)
+	        return ;
 	}
     addToOldMateria(m);
 }

@@ -10,9 +10,25 @@ Character::Character(std::string const &name) : _name(name)
 
 Character::Character(Character const &src)
 {
+  
     for (int i = 0; i < 4; i++)
         this->_inventory[i] = NULL;
-    *this = src;
+    for (int i = 0; i < 10; i++)
+        this->_oldMateria[i] = NULL;
+    for (int i = 0; i < 4; i ++)
+	{
+		if (this->_inventory[i] != NULL)
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
+	}
+    for(int i = 0; i < 4; i++)
+	{
+		this->_inventory[i] = NULL;
+		if (src._inventory[i])
+			this->_inventory[i] = src._inventory[i]->clone();
+	}
 }
 
 Character::~Character()

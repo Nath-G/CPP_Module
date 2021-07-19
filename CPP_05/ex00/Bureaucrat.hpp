@@ -9,10 +9,11 @@ class Bureaucrat
     private:
         std::string _name;
         int         _grade;
-        Bureaucrat();
+        void        checkGradeValue(int gradeValue);
 
     public:
-        Bureaucrat(std::string name, int grade);
+        Bureaucrat();
+        Bureaucrat(std::string const &name, int grade);
         Bureaucrat(Bureaucrat const &src);
 
         virtual ~Bureaucrat();
@@ -27,6 +28,17 @@ class Bureaucrat
         void        incrementGrade();
         void        decrementGrade();
 
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char  *what() const throw();
+        };
+        
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char  *what() const throw();
+        };
 
 };
 

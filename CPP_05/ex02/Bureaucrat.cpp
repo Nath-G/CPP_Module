@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:56:37 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/19 13:56:38 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/21 16:49:49 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,27 @@ void        Bureaucrat::signForm(Form &form) const
         catch(const std::exception &e)
         {
             std::cout << _name << " can not sign " << form.getName() << " because " << e.what() << std::endl;
+        }
+    }
+}
+
+
+void        Bureaucrat::executeForm(Form &form) const
+{
+    if(!(form.getIsSigned()))
+        std::cout << getName() << " can not execute because " << form.getName() << " is not signed." << std::endl;
+    else
+    {
+        try
+        {
+        //void    execute(const Bureaucrat &executor) const;
+            form.execute(*this);
+           // form.beSigned(*this);
+            std::cout << _name << " executs " << form.getName() << std::endl;
+        }
+        catch(const std::exception &e)
+        {
+            std::cout << _name << " can not execute " << form.getName() << " because " << e.what() << std::endl;
         }
     }
 }

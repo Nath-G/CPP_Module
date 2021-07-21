@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:42:28 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/20 10:48:59 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/21 17:41:29 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@
 # include "ShrubberyCreationForm.hpp"
 # include <string>
 # include <iostream>
+#include <cstdlib>
+# include <ctime>
 
-void    test_instanciation_0( const std:: string nameForm)
+void    test_instanciation_0(std:: string nameForm)
 {
     std::cout << BLUE << "--- Test#0: Bureaucrat whithout parameters (so too low grade to sign form) ---" << C_RES << std::endl;
     Bureaucrat  test;
@@ -45,26 +47,36 @@ void    test_instanciation_0( const std:: string nameForm)
     }
 }
 
-void    test_instanciation_1( const std:: string nameForm)
+void    test_instanciation_1(std:: string nameForm)
 {
-    std::cout << BLUE << "--- Test#0: Bureaucrat whithout parameters (so too low grade to sign form), then promote then sign ---" << C_RES << std::endl;
-    Bureaucrat  test;
-    ShrubberyCreationForm  foo(nameForm);
+    std::cout << BLUE << "--- Test#1: Bureaucrat whithout parameters (so too low grade to sign form), then promote then sign then same with copy instanciation ---" << C_RES << std::endl;
+    Bureaucrat  sbdy;
+    ShrubberyCreationForm  paper(nameForm);
     try
     {
-        std::cout << GREEN_B << test << C_RES;
-        std::cout << GREEN_B << foo << C_RES;
-        test.signForm(foo);
-        test.incrementGrade();
-        test.incrementGrade();
-        test.incrementGrade();
-        test.incrementGrade();
-        test.incrementGrade();
-        std::cout << GREEN_B << test << C_RES;
-        test.signForm(foo);
-        std::cout << GREEN_B << foo << C_RES;
-        foo.execute(test);
-
+        std::cout << GREY << "Step 1 - instanciation bureaucrat and form" << C_RES << std::endl;
+       
+       std::cout << GREEN_B << sbdy << C_RES;
+        std::cout << GREEN_B << paper << C_RES;
+        sbdy.signForm(paper); //cannot be signed because grade too low
+        for (int i = 0; i < 5; i++) //promote
+            sbdy.incrementGrade();
+        std::cout << GREEN_B << sbdy << C_RES;
+        sbdy.signForm(paper);
+        sbdy.executeForm(paper); // try to execute but grade too low
+        std::cout << GREEN_B << paper << C_RES;
+        std::cout << GREY << "Step 2 - instanciation by copy" << C_RES << std::endl;
+        ShrubberyCreationForm  paper2(paper); //instanciate by copy
+        std::cout << GREEN_B << paper2 << C_RES;
+        std::cout << GREEN_B << sbdy << C_RES;
+        sbdy.executeForm(paper2); //cannot be executed because it's unsigned
+        sbdy.signForm(paper2);
+        sbdy.executeForm(paper2); //cannot be executed because grade too low
+        for (int i = 0; i < 8; i++) //promote
+            sbdy.incrementGrade();
+        std::cout << GREEN_B << sbdy << C_RES;
+        sbdy.executeForm(paper2);
+        std::cout << GREEN_B << paper2 << C_RES;
     }
     catch(std::exception &e)
     {
@@ -270,7 +282,12 @@ void    test_demote_1(std:: string name, int grade,  std:: string nameForm, int 
 int main()
 {
     test_instanciation_0("home");
-    test_instanciation_1("home");
+    test_instanciation_1("lol");
+    std::srand(std::time(0));
+  
+     //   test_instanciation_0();
+        std::cout << std::endl;
+     //   test_instanciation_1();
     std::cout << std::endl;
 /*    test_instanciation_1("Me", 1, "Annoying", 15, 50);
     std::cout << std::endl;

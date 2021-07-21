@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:56:21 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/20 09:32:56 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/21 17:22:25 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ Form::Form() : _name("Basic"),
 {
 }
 
-Form::Form(std::string const &name, int const signGrade, int const execGrade) :
+Form::Form(std::string const &name, int const signGrade, int const execGrade, std::string const &target) :
                     _name(name),
+                    _target(target),
                     _signGradeRequired(signGrade),
                     _execGradeRequired(execGrade),
                     _isSigned(false)
@@ -49,10 +50,14 @@ Form            &Form::operator=(const Form &rhs)
     return (*this);
 }
 
-
 std::string     Form::getName() const
 {
     return(this->_name);
+}
+
+std::string     Form::getTarget() const
+{
+    return(this->_target);
 }
 
 int         Form::getSignGradeRequired() const
@@ -101,7 +106,7 @@ const char  *Form::GradeTooLowException::what() const throw()
 
 const char  *Form::FormUnsignedException::what() const throw()
 {
-    return ("Form unsiged.");
+    return ("Form unsigned.");
 }
 
 std::ostream     &operator<<(std::ostream &os, Form const &rhs)

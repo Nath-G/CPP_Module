@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 14:19:41 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/20 10:51:25 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/21 17:43:51 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,21 @@ static const char *SHRUBBERYFORM = ""
 		"          %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'           \n"
 		"          `&%\\ ` /%&'   \\/./        \\ '|8'             \n"
 		"            \\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_   \n";
-
+/*
 ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shrubbery", 145, 137)
 {
-}
+}*/
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("Shrubbery", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("Shrubbery", 145, 137, target)
 {
  //   this->target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : Form(src.getName(), 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : Form(src.getName(), 145, 137, src.getTarget())
 {
     *this = src;
+    this->Form::setIsSigned(0);
+
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -44,7 +46,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rhs)
 {
     this->Form::setIsSigned(rhs.getIsSigned());
-//    this->_shrubbery = rhs._shrubbery;
     return (*this);
 }
 
@@ -52,18 +53,17 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 std::string     ShrubberyCreationForm::getShrubbery() const
 {
-    return (this->target);
+    return (this->getTarget());
 }
-
 
 void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     if (!(this->getIsSigned()))
         throw FormUnsignedException();
-    if (executor.getGrade() > this->getSignGradeRequired())
+    if (executor.getGrade() > this->getExecGradeRequired())
         throw GradeTooLowException();
     std::ofstream newFileStream;
-    newFileStream.open((this->getShrubbery() + "_shrubbery").c_str());
+    newFileStream.open((this->getTarget() + "_shrubbery").c_str());
     if (newFileStream.fail())
         throw OpeningFileException();
     newFileStream << SHRUBBERYFORM;

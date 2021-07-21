@@ -18,14 +18,14 @@ class Form
         bool                _isSigned;
 
     public:
-        Form(const std::string  &name, const int signGrade, const int execGrade);
+        Form(const std::string  &name, const int signGrade, const int execGrade, const std::string  &target);
         Form(const Form &src);
         ~Form();
     
         Form            &operator=(const Form &rhs);
 
         std::string     getName(void)const;
-    //    void            setName(const std::string name);
+        void            setName(const std::string name);
         std::string     getTarget(void)const;
     //    void            setTarget(const std::string name);
         int             getSignGradeRequired(void)const;

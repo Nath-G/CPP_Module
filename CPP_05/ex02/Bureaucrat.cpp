@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:56:37 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/21 16:49:49 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:12:40 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void        Bureaucrat::signForm(Form &form) const
         try
         {
             form.beSigned(*this);
-            std::cout << _name << " signs " << form.getName() << std::endl;
+            std::cout << _name << " signs " << form.getName() << "." << std::endl;
         }
         catch(const std::exception &e)
         {
@@ -104,10 +104,8 @@ void        Bureaucrat::executeForm(Form &form) const
     {
         try
         {
-        //void    execute(const Bureaucrat &executor) const;
             form.execute(*this);
-           // form.beSigned(*this);
-            std::cout << _name << " executs " << form.getName() << std::endl;
+            std::cout << _name << " executs " << form.getName() << "." << std::endl;
         }
         catch(const std::exception &e)
         {

@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 14:19:41 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/22 17:48:25 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:52:34 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : Form("Robotomy request form", 72, 45, target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form("Presidential Pardon form", 25, 5, target)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : Form(src.getName(), 72, 45, src.getTarget())
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : Form(src.getName(), 25, 5, src.getTarget())
 {
     *this = src;
     this->Form::setIsSigned(0);
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs)
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &rhs)
 {
     this->Form::setIsSigned(rhs.getIsSigned());
     return (*this);
 }
 
-void    RobotomyRequestForm::execute(Bureaucrat const &executor)
+void    PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
     Form::execute(executor);
-    std::cout << "*** Drill noise ***" << std::endl;
-    if (rand() %2)
-        std::cout << this->getTarget() << " has been robotomized." << std::endl;
-    else
-        std::cout << this->getTarget() << " has NOT been robotomized : FAILURE." << std::endl;
+    std::cout << this->getTarget() << " has been forgiven by Zafod Beeblebrox." << std::endl;
 }

@@ -2,18 +2,11 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include <fstream>
-# include <iostream>
-# include <cstring>
-# include <string>
 # include "Form.hpp"
-//# include "Bureaucrat.hpp"
-
-//class Bureaucrat;
 
 class ShrubberyCreationForm: public virtual Form
 {
     private:
-     //   const std::string target;
         ShrubberyCreationForm();
 
     public:
@@ -22,9 +15,8 @@ class ShrubberyCreationForm: public virtual Form
         virtual ~ShrubberyCreationForm();
 
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
-        std::string     getShrubbery()const;
 
-        void    execute(const Bureaucrat &executor) const;
+        void    execute(const Bureaucrat &executor);
 
     class OpeningFileException : public std::exception
     {

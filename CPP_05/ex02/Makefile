@@ -10,6 +10,7 @@ SRCS		=	main.cpp \
 				Form.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp \
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -22,7 +23,7 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-		@	rm -rf $(OBJS)
+		@	rm -rf $(OBJS) *_shrubbery*
 
 fclean:	clean
 		@	rm -rf $(NAME)

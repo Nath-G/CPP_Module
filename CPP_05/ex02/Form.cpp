@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:56:21 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/21 17:22:25 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:10:23 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,14 @@ void        Form::beSigned(Bureaucrat someone)
             _isSigned = true;
         }
     return;
+}
+
+void    Form::execute(Bureaucrat const &executor)
+{
+    if (!(this->getIsSigned()))
+        throw FormUnsignedException();
+    if (executor.getGrade() > this->getExecGradeRequired())
+        throw GradeTooLowException();
 }
 
 const char  *Form::GradeTooHighException::what() const throw()

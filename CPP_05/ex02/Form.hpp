@@ -27,7 +27,6 @@ class Form
         std::string     getName(void)const;
         void            setName(const std::string name);
         std::string     getTarget(void)const;
-    //    void            setTarget(const std::string name);
         int             getSignGradeRequired(void)const;
         int             getExecGradeRequired(void)const;
         bool            getIsSigned()const;

@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:42:28 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/21 17:41:29 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:56:47 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
 # include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 # include <string>
 # include <iostream>
-#include <cstdlib>
+# include <cstdlib>
 # include <ctime>
 
 void    test_instanciation_0(std:: string nameForm)
@@ -83,6 +84,54 @@ void    test_instanciation_1(std:: string nameForm)
         std::cout << CORAIL << e.what() << C_RES << std::endl;
     }
 }
+
+void    test_instanciation_2(std:: string nameForm)
+{
+    std::cout << BLUE << "--- Test#2: Bureaucrat whithout parameters (so too low grade to sign form) ---" << C_RES << std::endl;
+    Bureaucrat  test;
+    RobotomyRequestForm  Rob(nameForm);
+    try
+    {
+        std::cout << GREEN_B << test << C_RES;
+        std::cout << GREEN_B << Rob << C_RES;
+        Rob.beSigned(test);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << CORAIL << e.what() << C_RES << std::endl;
+    }
+}
+
+
+void    test_instanciation_3(std:: string nameForm)
+{
+    std::cout << BLUE << "--- Test#3: Bureaucrat whithout parameters (so too low grade to sign form), then promote then sign then same with copy instanciation ---" << C_RES << std::endl;
+    Bureaucrat  sbdy;
+    RobotomyRequestForm  rob(nameForm);
+    try
+    {
+        std::cout << GREY << "Step 1 - instanciation bureaucrat and form" << C_RES << std::endl;
+       
+       std::cout << GREEN_B << sbdy << C_RES;
+        std::cout << GREEN_B << rob << C_RES;
+        sbdy.signForm(rob); //cannot be signed because grade too low
+        for (int i = 0; i < 78; i++) //promote
+            sbdy.incrementGrade();
+        std::cout << GREEN_B << sbdy << C_RES;
+        sbdy.signForm(rob);
+        sbdy.executeForm(rob); // try to execute but grade too low
+        std::cout << GREEN_B << rob << C_RES;
+        for (int i = 0; i < 27; i++) //promote
+            sbdy.incrementGrade();
+        std::cout << GREEN_B << sbdy << C_RES;
+        sbdy.executeForm(rob); // try to execute but grade too low
+    }
+    catch(std::exception &e)
+    {
+        std::cout << CORAIL << e.what() << C_RES << std::endl;
+    }
+}
+
 /*
 void    test_instanciation_1(std:: string name, int grade,  std:: string nameForm, int signGradRequired, int execGradeRequired)
 {
@@ -282,9 +331,19 @@ void    test_demote_1(std:: string name, int grade,  std:: string nameForm, int 
 int main()
 {
     test_instanciation_0("home");
+    std::srand(std::time(0));
+
     test_instanciation_1("lol");
     std::srand(std::time(0));
-  
+
+    test_instanciation_2("Robot");
+    std::srand(std::time(0));
+
+    test_instanciation_3("Rob");
+
+    std::srand(std::time(0));
+  //  RobotomyRequestForm rob("oups");
+    
      //   test_instanciation_0();
         std::cout << std::endl;
      //   test_instanciation_1();

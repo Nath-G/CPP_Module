@@ -13,6 +13,7 @@
 class ShrubberyCreationForm: public virtual Form
 {
     private:
+     //   const std::string target;
         ShrubberyCreationForm();
 
     public:

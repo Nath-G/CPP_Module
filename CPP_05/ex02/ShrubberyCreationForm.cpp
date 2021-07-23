@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 14:19:41 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/22 17:31:29 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:45:25 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static const char *SHRUBBERYFORM = ""
 		"          `&%\\ ` /%&'   \\/./        \\ '|8'             \n"
 		"            \\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_   \n";
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("Shrubbery creation form", 145, 137, target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("shrubbery creation", 145, 137, target)
 {
 }
 

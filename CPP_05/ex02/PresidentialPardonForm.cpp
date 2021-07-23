@@ -12,7 +12,7 @@
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form("Presidential Pardon form", 25, 5, target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form("presidential pardon", 25, 5, target)
 {
 }
 

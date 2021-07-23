@@ -6,13 +6,13 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 13:56:21 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/22 18:10:23 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:48:07 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : _name("Basic"),
+Form::Form() : _name("basic"),
                 _signGradeRequired(20),
                 _execGradeRequired(70),
                 _isSigned(false)

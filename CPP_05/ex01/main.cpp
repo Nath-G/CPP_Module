@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:42:28 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/19 13:49:13 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:17:10 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void    test_instanciation_4(std:: string name, int grade, std:: string nameForm
 
 void    test_instanciation_5(std::string name, int grade, std:: string nameForm, int signGradRequired, int execGradeRequired)
 {
-    std::cout << BLUE << "--- Instanciation test by copy fair grad, copy sign then src sign a form already signed then increment and decrement---" << C_RES << std::endl;
+    std::cout << BLUE << "--- Test#5: Instanciation test by copy fair grad, copy sign then src sign a form already signed then increment and decrement---" << C_RES << std::endl;
     try
     {
         Bureaucrat test0(name, grade);
@@ -152,19 +152,18 @@ void    test_instanciation_5(std::string name, int grade, std:: string nameForm,
 
 void    test_promote_0()
 {
-    std::cout << BLUE << "--- Instanciation test whithout parameters promote from 150 to 0 ---" << C_RES << std::endl;
+    std::cout << BLUE << "--- Test#6:Instanciation test whithout parameters promote from 150 to 0 ---" << C_RES << std::endl;
     Bureaucrat  test;
     Form        form;
     std::cout << GREEN_B << test << C_RES;
     std::cout << GREEN_B << form << C_RES;
     test.signForm(form);
-    std::cout << SKY_BLUE << "### promote test utill ###" << C_RES << std::endl;
+    std::cout << GREY << "### promote test untill 20 ###" << C_RES << std::endl;
     while (test.getGrade() > 20)
     {
         try
         {
             test.incrementGrade();
-            std::cout << GREEN_B << test << C_RES;
         }
         catch(std::exception &e)
         {
@@ -172,14 +171,14 @@ void    test_promote_0()
             break;
         }
     }
-    std::cout << std::endl;
+    std::cout << GREEN_B << test << C_RES;
     test.signForm(form);
     std::cout << GREEN_B << form << C_RES;
 }
 
 void    test_promote_1(std:: string name, int grade)
 {
-    std::cout << BLUE << "--- Instanciation test whith parameters promote from 150 to 0 ---" << C_RES << std::endl;
+    std::cout << BLUE << "--- Test#7: Instanciation test whith parameters promote from 150 to 0 ---" << C_RES << std::endl;
     
     Bureaucrat test(name, grade);
     
@@ -201,7 +200,7 @@ void    test_promote_1(std:: string name, int grade)
 
 void    test_demote_0()
 {
-    std::cout << BLUE << "--- Instanciation test whithout parameters demote from 150 to 151 ---" << C_RES << std::endl;
+    std::cout << BLUE << "--- Test#8: Instanciation test whithout parameters demote from 150 to 151 ---" << C_RES << std::endl;
     Bureaucrat test;
     
     while (test.getGrade() < 151)
@@ -221,7 +220,7 @@ void    test_demote_0()
 
 void    test_demote_1(std:: string name, int grade)
 {
-    std::cout << BLUE << "--- Instanciation test whith parameters demote from 1 to 150 ---" << C_RES << std::endl;
+    std::cout << BLUE << "--- Test#9: Instanciation test whith parameters demote from 1 to 150 ---" << C_RES << std::endl;
     Bureaucrat test(name, grade);
     
     while (test.getGrade() < 151)
@@ -254,8 +253,8 @@ int main()
     test_instanciation_5("Copy", 20, "Annoying", 25, 50);
     std::cout << std::endl;
     test_promote_0();
-    std::cout << std::endl;
- /*   test_promote_1("Lucky", 150);
+/*  std::cout << std::endl;
+    test_promote_1("Lucky", 150);
     std::cout << std::endl;
     test_demote_0();
     std::cout << std::endl;

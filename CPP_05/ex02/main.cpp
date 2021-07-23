@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:42:28 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/22 18:13:40 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:13:32 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void    test_instanciation_2(std:: string nameForm)
 
 void    test_instanciation_3(std:: string nameForm)
 {
-    std::cout << BLUE << "--- Test#3: Bureaucrat whithout parameters (so too low grade to sign form) and Presidential Pardon, then promote then sign then same with copy instanciation ---" << C_RES << std::endl;
+    std::cout << BLUE << "--- Test#3: Bureaucrat whithout parameters (so too low grade to sign form) and Presidential Pardon, then promote then sign ---" << C_RES << std::endl;
     Bureaucrat  sbdy;
     PresidentialPardonForm  sheet(nameForm);
     try
@@ -152,7 +152,7 @@ void    test_instanciation_4(std:: string nameForm)
 
 void    test_instanciation_5(std:: string nameForm)
 {
-    std::cout << BLUE << "--- Test#5: Bureaucrat whithout parameters (so too low grade to sign form) and Robotomy Request, then promote then sign then same with copy instanciation ---" << C_RES << std::endl;
+    std::cout << BLUE << "--- Test#5: Bureaucrat whithout parameters (so too low grade to sign form) and Robotomy Request, then promote then sign ---" << C_RES << std::endl;
     Bureaucrat  sbdy;
     RobotomyRequestForm  rob(nameForm);
     try
@@ -195,6 +195,5 @@ int main()
         std::cout << std::endl;
     std::srand(std::time(0));
     test_instanciation_5("Nobody");
-    std::cout << std::endl;
 return (0);
 }

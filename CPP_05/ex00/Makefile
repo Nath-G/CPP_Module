@@ -3,7 +3,7 @@ NAME		= 	 bureaucrat
 
 CC			= 	clang++
 
-CFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
 
 SRCS		=	main.cpp \
 				Bureaucrat.cpp \
@@ -28,7 +28,7 @@ re: fclean
 	make -j
 
 fsan: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -g3 -o $(NAME)
 
 ffsan: fclean
 	make fsan -j

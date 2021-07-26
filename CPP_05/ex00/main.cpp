@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:42:28 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/19 13:57:18 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/26 12:28:21 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # define RED 		"[31m"
 
 # include "Bureaucrat.hpp"
-# include <string>
-# include <iostream>
 
 void    test_instanciation_0()
 {

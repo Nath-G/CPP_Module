@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:42:28 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/23 18:07:45 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/26 12:14:45 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,10 @@
 # define RED 		"[31m"
 
 # include "Bureaucrat.hpp"
-# include "Form.hpp"
 # include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "Intern.hpp"
-
-# include <string>
-# include <iostream>
-# include <cstdlib>
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "Intern.hpp"
 # include <ctime>
 
 void    test_instanciation_0(std:: string nameForm, std:: string target)

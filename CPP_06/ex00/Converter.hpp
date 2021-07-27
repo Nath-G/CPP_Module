@@ -2,7 +2,11 @@
 # define CONVERTER_HPP
 
 # include <iostream>
+# include <sstream>
 # include <string>
+# include <limits>
+# include <cstdlib>
+
 
 class Converter
 {

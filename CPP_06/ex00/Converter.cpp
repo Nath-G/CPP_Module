@@ -6,16 +6,11 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 14:16:04 by nagresel          #+#    #+#             */
-/*   Updated: 2021/07/27 09:27:31 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/07/27 11:44:54 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Converter.hpp"
-/*
-Converter::Converter()
-{
-
-}*/
 
 Converter::Converter(const std::string &value):_str(value), _type(TypeInvalid), _isValid(false)
 {
@@ -51,29 +46,78 @@ int  Converter::getType()const
     return(_type);
 }
 
+void  Converter::setType(int type)
+{
+    _type = type;
+}
+
 void            Converter::findType()
 {
+    //nouvel algo
+    std::stringstream    strStrm;
+    int             len = _str.length();
+    int             i = 0;
 
-    if (_str == "-inf" || _str == "+inf" || _str == "nan")
-        _type = TypeDouble;
-    else if (_str == "-inff" || _str == "+inff" || _str == "nanf")
-        _type = TypeFloat;
-    else if (_str.length() > 3 && (_str.length() - 1) == 'f')
-        _type = TypeFloat;
-    else if (_str.length() > 2 && _str.find('.') != std::string::npos)
-        _type = TypeDouble;
-    else if (_str.length() == 1)
+    if (len == 1 && _str[0] && !std::isdigit(_str[0]))
     {
-        if (_str[0] >= '0' && _str[0] <= '9')
-            _type = TypeInt;
-
-        else if (_str[0] >= 32 && _str[0] <= 126)
-            _type = TypeChar;
-        else
-            _type = TypeInvalid;
+        setType(TypeChar);
+        _cValue = _str[0];
+        return;
     }
-    else
-        _type = TypeInt;
+    if (_str[0] == '+' || _str[0] == '-')
+        strStrm << _str[i++];
+    setType(TypeInt);
+    
+    while (i < len)
+    {
+        if (_str[i] == '.' && _type != TypeDouble)
+        {
+            setType(TypeDouble);
+            strStrm << _str[i];
+        }
+        else if (_str[i] == 'e' && i < len - 1 &&
+                    (_str[i + 1] == '-' || _str[i + 1] == '+' ||  std::isdigit(_str[i + 1])))
+        {
+            strStrm << _str[i] << _str[i + 1];
+            i++;
+            setType(TypeDouble);
+        }
+        else if (_str[i] == 'f' && i == len - 1 && _type == TypeDouble)
+            setType(TypeFloat);
+        else if (!std::isdigit(_str[i]))
+        {
+            setType(TypeInvalid);
+            i = len;
+        }
+        else
+            strStrm << _str[i];
+        i++;
+    }
+    if  (_type == TypeFloat)
+        strStrm >> _fValue;
+    else if (_type == TypeDouble)
+        strStrm >> _dValue;
+    else if (_type == TypeInt)
+    {
+        long lValue;
+        strStrm >> lValue;
+        if (strStrm.fail() || lValue > std::numeric_limits<int>::max()
+                    || lValue < std::numeric_limits<int>::min())
+            setType(TypeInvalid);
+    }
+    else if (_type == TypeInvalid)
+    {
+        if (_str == "inff" || _str == "-inff" || _str == "+inff" || _str == "nanf")
+        {
+            _fValue = atof(_str.c_str()); //add '\0' at the end of _str
+            setType(TypeFloat);
+        }
+        else if (_str == "inf" || _str == "-inf" || _str == "+inf" || _str == "nan")
+        {
+            _dValue = atof(_str.c_str()); //add '\0' at the end of _str
+            setType(TypeDouble);
+        }
+    }
 }
 
 void            Converter::IsFormatValid()

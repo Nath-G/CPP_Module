@@ -12,10 +12,6 @@
 
 # include "Converter.hpp"
 
-Converter::Converter()
-{
-}
-
 std::string Converter::_stat[3] = {"valid","undisplayable", "impossible"};
 
 Converter::Converter(const std::string &value):_str(value), _type(TypeInvalid)
@@ -27,14 +23,13 @@ Converter::Converter(const std::string &value):_str(value), _type(TypeInvalid)
     check_validity();
 }
 
-Converter::Converter(const Converter &src) : _str(src.getStr()), _type(src.getType())
+Converter::Converter(const Converter &src)
 {
     *this = src;
 }
 
 Converter::~Converter()
 {
-
 }
 
 Converter &Converter::operator=(const Converter &rhs)
@@ -69,7 +64,6 @@ void            Converter::setCvalue(char c)
     _cValue = c;
 }
 
-
 int             Converter::getIvalue()const
 {
     return (this->_iValue);
@@ -91,7 +85,6 @@ void            Converter::setFvalue(float f)
 {
     _fValue = f;
 }
-
 
 double             Converter::getDvalue()const
 {
@@ -175,6 +168,7 @@ void        Converter::convert()
 {
     if (_type == TypeChar)
         convert(_cValue);
+    
     else if (_type == TypeInt)
         convert(_iValue);
     else if (_type == TypeFloat)
@@ -183,7 +177,6 @@ void        Converter::convert()
         convert(_dValue);
 }
    
-
 void            Converter::convert(char c)
 {
 	this->_iValue = static_cast<int>(c);
@@ -225,17 +218,14 @@ void    Converter::check_validity()
     else if ((getType() == TypeInt && !std::isprint(this->_cValue))
             || (TypeFloat && !std::isprint(this->_fValue))
             || (TypeDouble && !std::isprint(this->_dValue)))
-		_status[TypeChar] = Impossible;
-
+		_status[TypeChar] = Undisplayable;
     if (!doubleIsValue() || !floatIsValue())
     {
         this->_status[TypeChar] = Impossible;
 		this->_status[TypeInt] = Impossible;
     }
-    if ((getType() == TypeInt && _status[TypeInt] == Valid && getIvalue() != getFvalue()))
-    {
-       _status[TypeFloat] = Impossible;
-    }
+    if (getDvalue() != getFvalue() && floatIsValue())
+        this->_status[TypeFloat] = Impossible;
 }
 
 bool Converter::floatIsValue(void) const
@@ -268,8 +258,8 @@ std::ostream    &operator<<(std::ostream &os, const Converter &rhs)
         os << rhs._stat[rhs._status[rhs.TypeFloat]] << std::endl;
     os << "double: ";
     if (rhs._status[rhs.TypeDouble] == rhs.Valid)
-        os << rhs.getDvalue() << std::endl;
+        os << std::fixed << std::setprecision(1) << rhs.getDvalue() << std::endl;
     else
-        os << rhs._stat[rhs._status[rhs.TypeDouble]] << std::endl;
+        os  << rhs._stat[rhs._status[rhs.TypeDouble]] << std::endl;
     return (os);
 }

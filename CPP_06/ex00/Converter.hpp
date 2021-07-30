@@ -5,10 +5,8 @@
 # include <sstream>
 # include <string>
 # include <limits.h>
-# include <cstdlib>
 # include <iomanip>
 # include <cmath>
-
 
 class Converter
 {
@@ -31,13 +29,14 @@ class Converter
         void            check_validity();
         bool floatIsValue(void) const;
         bool doubleIsValue(void) const;
+    
     public:
         Converter(const std::string &value);
         Converter(const Converter &src);
         virtual ~Converter();
         Converter &operator=(const Converter &rhs);
     
-            enum Type {
+        enum Type {
 		    TypeChar,
 		    TypeInt,
 		    TypeFloat,
@@ -52,7 +51,6 @@ class Converter
     
         int             _status[4];
         static std::string _stat[3];
-
     
         std::string     getStr()const;
         int             getType()const;
@@ -65,12 +63,6 @@ class Converter
         void            setFvalue(float f);
         double          getDvalue()const;
         void            setDvalue(double d);
-    //    int             getStatus()const;
-    //    void            setStatus(int status);
-
-
-   //    void            initConverter(int type)const;
-
 
 };
 

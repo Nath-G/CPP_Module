@@ -23,8 +23,10 @@ Converter::Converter(const std::string &value):_str(value), _type(TypeInvalid)
     check_validity();
 }
 
-Converter::Converter(const Converter &src)
+Converter::Converter(const Converter &src) : _str(src._str), _type(src._type),_cValue(src._cValue), _iValue(src._iValue), _fValue(src._fValue), _dValue(src._dValue)
 {
+    for (int i = 0; i < 4; i++)
+        _status[i] = src._status[i];
     *this = src;
 }
 
@@ -183,18 +185,21 @@ void            Converter::convert(char c)
     this->_fValue = static_cast<float>(c);
 	this->_dValue = static_cast<double>(c);
 }
+
 void            Converter::convert(int i)
 {
 	this->_cValue = static_cast<char>(i);
     this->_fValue = static_cast<float>(i);
 	this->_dValue = static_cast<double>(i);
 }
+
 void            Converter::convert(float f)
 {
     this->_cValue = static_cast<char>(f);
     this->_iValue = static_cast<int>(f);
 	this->_dValue = static_cast<double>(f);
 }
+
 void            Converter::convert(double d)
 {
     this->_cValue = static_cast<char>(d);
@@ -237,7 +242,6 @@ bool Converter::doubleIsValue(void) const
 {
 	return (!(std::isnan(this->_dValue) || std::isinf(this->_dValue)));
 }
-
 
 std::ostream    &operator<<(std::ostream &os, const Converter &rhs)
 {

@@ -3,7 +3,6 @@
 
 # include <algorithm>
 # include <exception>
-//# include <iterator>
 
 template <typename T>
 int easyfind(T &container, int n)
@@ -13,7 +12,6 @@ int easyfind(T &container, int n)
     iter = std::find(container.begin(), container.end(), n);
     if (iter == container.end())
         throw std::exception();
-//    return (std::distance(container.begin(), iter));
     return (*iter);
 }
 

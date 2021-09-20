@@ -5,6 +5,8 @@
 # include <iostream>
 # include <numeric>
 # include <algorithm>
+# include <iterator>
+
 
 class Span
 {
@@ -12,7 +14,7 @@ class Span
 private:
     Span(void);
     unsigned int        _size;
-    std::vector<int>    _tab;
+    std::vector<int>    _board;
 
 
 public:
@@ -22,14 +24,18 @@ public:
 
     Span    &operator=(Span const &rhs);
     void    addNumber(const int value);
-    long    longestSpan()const;
-    long    shortestSpan()const;
+    void 	display_board();
 
-//    template <typename T>
-//    void    addNumber(T begin, T end)
-//    {
+    unsigned int    longestSpan()const;
+    unsigned int    shortestSpan()const;
 
-//    }
+    template <typename T>
+    void    addNumber(T begin, T end)
+    {
+        if (static_cast<unsigned long>(std::distance(begin, end)) > (_size - this->_board.size()))
+            throw(std::runtime_error("Tab is full!"));
+        this->_board.insert(this->_board.begin(), begin, end);
+    }
 };
 
 #endif

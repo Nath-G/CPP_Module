@@ -2,12 +2,12 @@
 
 Span::Span(unsigned int n) : _size(n)
 {
-    this->_tab.reserve(n);
+    this->_board.reserve(n);
 }
 
 Span::Span(Span const &src) : _size(src._size)
 {
-    this->_tab = src._tab;
+    this->_board = src._board;
 }
 
 Span::~Span()
@@ -16,38 +16,45 @@ Span::~Span()
 
 Span    &Span::operator=(Span const &rhs)
 {
-    this->_tab = rhs._tab;
+    this->_board = rhs._board;
     this->_size = rhs._size;
     return(*this);
 }
 
 void    Span::addNumber(const int value)
 {
-    if (this->_tab.size() < _size)
-        this->_tab.push_back(value);
+    if (this->_board.size() < _size)
+        this->_board.push_back(value);
     else
-        throw(std::runtime_error("Tab is full!"));
+        throw(std::runtime_error("Board is full!"));
     return;
 }
 
-long    Span::longestSpan()const
-{
-    if (this->_tab.size() < 2)
-        throw(std::runtime_error("No enough elements in the tab!"));
+static void display_int(int n){ std::cout << n << " "; }
 
-    int min = *std::min_element(this->_tab.begin(), this->_tab.end());
-    int max = *std::max_element(this->_tab.begin(), this->_tab.end());
+void 	Span::display_board()
+{
+	std::for_each(this->_board.begin(), this->_board.end(), &display_int);
+	std::cout << std::endl;
+}
+
+unsigned int    Span::longestSpan()const
+{
+    if (this->_board.size() < 2)
+        throw(std::runtime_error("At least 2 numbers are required!"));
+    int min = *std::min_element(this->_board.begin(), this->_board.end());
+    int max = *std::max_element(this->_board.begin(), this->_board.end());
     return(max - min);
 }
 
-long    Span::shortestSpan()const
+unsigned int    Span::shortestSpan()const
 {
-    if (this->_tab.size() < 2)
-        throw(std::runtime_error("No enough elements in the tab!"));
-
-    std::vector<int> t = this->_tab;
+    if (this->_board.size() < 2)
+        throw(std::runtime_error("At least 2 numbers are required!"));
+    int n = this->_board.size();
+    std::vector<int> t = this->_board;
+    std::vector<unsigned int> result(n);
     std::sort(t.begin(), t.end());
-    std::adjacent_difference(t.begin(), t.end(), t.begin());
-    return(*std::min_element(this->_tab.begin(), this->_tab.end()));
- //   return;
+    std::adjacent_difference(t.begin(), t.end(),result.begin());
+    return *std::min_element(result.begin() + 1, result.end());
 }

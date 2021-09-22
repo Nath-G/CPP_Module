@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 12:05:30 by nagresel          #+#    #+#             */
-/*   Updated: 2021/09/17 15:25:04 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:06:22 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,28 @@ int main()
 	std::vector<int> vector;
 	std::list<int> list;
 
-	std::cout << GREY << "--- Using easyfind on empty containers ---" << C_RES << std::endl << std::endl;
-    test(list, 120);
-    test(vector, 1);
+	std::cout << GREY << "*** Using easyfind on empty containers ***" << C_RES << std::endl << std::endl;
+  std::cout << GREY << "  - For a list type container:   " << C_RES  << std::endl;
+  test(list, 120);
+  std::cout << GREY << "  - For a vector type container: " << C_RES  << std::endl;
+  test(vector, 1);
    
-   	std::cout << GREY << "--- Filling containers with even values from 0 to 198";
+   	std::cout << GREY << "*** Filling containers with even values from 0 to 198";
     for (int index = 0; index < 100; ++index)
 		vector.push_back(index * 2);
     for (int index = 0; index < 100; ++index)
 		list.push_back(index * 2);
-    std::cout << GREY << " then test again ---" << C_RES << std::endl << std::endl;
+    std::cout << GREY << " then test again ***" << C_RES << std::endl << std::endl;
+    std::cout << GREY << "  - For a list type container:   " << C_RES  << std::endl;
+    test(list, 0);
+    test(list, 4);
+    test(list, 198);
+    test(list, -2);
+    test(list, 3);
+    test(list, 151);
+    test(list, 202);
+
+    std::cout << GREY << "  - For a vector type container: " << C_RES  << std::endl;
     test(vector, 0);
     test(vector, 2);
     test(vector, 198);
@@ -53,13 +65,6 @@ int main()
     test(vector, 151);
     test(vector, 200);
 
-    test(list, 0);
-    test(vector, 4);
-    test(list, 198);
-    test(list, -2);
-    test(list, 3);
-    test(list, 151);
-    test(list, 202);
-
+   
     return (0);
 }

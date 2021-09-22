@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 17:49:07 by nagresel          #+#    #+#             */
-/*   Updated: 2021/09/20 16:13:39 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:10:18 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int s_random()
 
 void test_10k_values()
 {
-	std::cout << GREY << "*** TEST span 10k values ***" << C_RES << std::endl;
+	std::cout << GREY << "*** TEST span 10k values randomized with 1 000k***" << C_RES << std::endl;
 
 	std::srand(unsigned(std::time(NULL)));
 	std::vector<int> board(10000);
@@ -85,7 +85,9 @@ int main()
   try
   {
     test_subject();
+    std::cin.get();
     test_limits();
+    std::cin.get();
     test_10k_values();
   }
   catch(std::exception & e) { std::cout << e.what() << std::endl; }

@@ -1,5 +1,5 @@
 
-NAME		= 	 mutanStack
+NAME		= 	 mutantStack
 
 CC			= 	clang++
 
@@ -32,4 +32,4 @@ fsan: $(OBJS)
 ffsan: fclean
 	make fsan -j
 
-.PHONY: all clean fclean re fsan ffsan mutanStack
+.PHONY: all clean fclean re fsan ffsan mutantStack

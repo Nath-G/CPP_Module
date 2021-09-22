@@ -6,7 +6,7 @@
 /*   By: nagresel <nagresel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 13:28:42 by nagresel          #+#    #+#             */
-/*   Updated: 2021/09/22 14:46:01 by nagresel         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:18:41 by nagresel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void    test_subject_mutantStack()
 {
-    std::cout << GREY << "***Test with MutantStack container ***" << C_RES << std::endl;
+    std::cout << GREY << "***Test (from subject) with MutantStack container ***" << C_RES << std::endl;
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
@@ -45,7 +45,7 @@ void    test_subject_mutantStack()
 }
 void    test_subject_list()
 {
-    std::cout << GREY << "*** Test with std::list container ***" << C_RES << std::endl;
+    std::cout << GREY << "*** Test (from subject) with std::list container ***" << C_RES << std::endl;
 
     std::list<int> lst;
     lst.push_back(5);
@@ -83,10 +83,10 @@ void    test_empty()
     lst.push_back(200);
     lst.push_back(300);
 
-    std::cout << "the return of ms.empty is           : " << ms.empty() << std::endl;
-    std::cout << "the return of lst.empty list is     : " << lst.empty() << std::endl;
-    std::cout << "the return of ms_empty.empty list is: " << ms_empty.empty() << std::endl;
-    std::cout << "the return of lst_empty list is     : " << lst_empty.empty() << std::endl;
+    std::cout << "the return of ms.empty() is      :  " << ms.empty() << std::endl;
+    std::cout << "the return of lst.empty() is     :  " << lst.empty() << std::endl;
+    std::cout << "the return of ms_empty.empty() is:  " << ms_empty.empty() << std::endl;
+    std::cout << "the return of lst_empty.empty() is: " << lst_empty.empty() << std::endl;
     std::cout << std::endl;
 
 }
@@ -95,22 +95,30 @@ void test_copy()
 {
 	std::cout << GREY << "*** TEST copy ***" << C_RES << std::endl;
 	MutantStack<int> origin;
-	origin.push(9);
+	origin.push(66);
+	origin.push(666);
 
 	MutantStack<int> copy(origin);
-	std::cout << "copy has to contain 9    : " << static_cast<int>(copy.top()) << std::endl;
+	std::cout << "copy has to contain 666  : " << static_cast<int>(copy.top()) << std::endl;
 	copy.pop();
-	std::cout << "original size has to be 1: " << origin.size() << std::endl;
-	std::cout << "copy size has to be 0    : " << copy.size() << std::endl;
+	std::cout << "origin size has to be 2: " << origin.size() << std::endl;
+	std::cout << "copy size has to be 1  : " << copy.size() << std::endl;
+	copy.pop();
+	std::cout << "origin size has to be 2: " << origin.size() << std::endl;
+	std::cout << "copy size has to be 0  : " << copy.size() << std::endl;
+    
     std::cout << std::endl;
     
 }
 
 int main()
 {
-   test_subject_mutantStack();
-   test_subject_list();
-   test_empty();
-   test_copy();
+    test_subject_mutantStack();
+    std::cin.get();
+    test_subject_list();
+    std::cin.get();
+    test_empty();
+    std::cin.get();
+    test_copy();
     return 0;
 }
